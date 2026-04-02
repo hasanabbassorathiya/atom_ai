@@ -9,9 +9,18 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  runanywhere: ^0.1.0 # Hypothetical version, adjust based on actual pubspec requirement
-  runanywhere_llamacpp: ^0.1.0
-  runanywhere_onnx: ^0.1.0
+  runanywhere:
+    git:
+      url: https://github.com/RunanywhereAI/runanywhere-sdks
+      path: sdk/runanywhere-flutter/packages/runanywhere
+  runanywhere_llamacpp:
+    git:
+      url: https://github.com/RunanywhereAI/runanywhere-sdks
+      path: sdk/runanywhere-flutter/packages/runanywhere_llamacpp
+  runanywhere_onnx:
+    git:
+      url: https://github.com/RunanywhereAI/runanywhere-sdks
+      path: sdk/runanywhere-flutter/packages/runanywhere_onnx
   cupertino_icons: ^1.0.8
   flutter_riverpod: ^3.3.1
   go_router: ^17.1.0
@@ -19,7 +28,7 @@ dependencies:
   shared_preferences: ^2.3.4
   path_provider: ^2.1.5
   file_picker: ^10.3.10
-  permission_handler: ^12.0.1
+  permission_handler: ^11.4.0
   google_fonts: ^8.0.2
   flutter_animate: ^4.5.2
   intl: ^0.20.2
@@ -30,6 +39,20 @@ dependencies:
   camera: ^0.11.0
   syncfusion_flutter_pdf: ^28.2.5
   firebase_core: ^4.6.0
+
+dependency_overrides:
+  runanywhere:
+    git:
+      url: https://github.com/RunanywhereAI/runanywhere-sdks
+      path: sdk/runanywhere-flutter/packages/runanywhere
+  runanywhere_llamacpp:
+    git:
+      url: https://github.com/RunanywhereAI/runanywhere-sdks
+      path: sdk/runanywhere-flutter/packages/runanywhere_llamacpp
+  runanywhere_onnx:
+    git:
+      url: https://github.com/RunanywhereAI/runanywhere-sdks
+      path: sdk/runanywhere-flutter/packages/runanywhere_onnx
 
 dev_dependencies:
   flutter_test:

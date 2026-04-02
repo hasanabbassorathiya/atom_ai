@@ -1,20 +1,16 @@
-import 'package:edge_veda/edge_veda.dart';
+import 'package:runanywhere/runanywhere.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-final ttsServiceProvider = Provider<TtsServiceWrapper>((ref) => TtsServiceWrapper());
+final ttsServiceProvider = Provider<TtsService>((ref) => TtsService());
 
-class TtsServiceWrapper {
-  final TtsService tts = TtsService();
-
+class TtsService {
   Future<void> speak(String text) async {
-    await tts.speak(text);
+    // TTS synthesize returns a TTSResult.
+    await RunAnywhere.synthesize(text);
   }
 
   Future<void> stop() async {
-    await tts.stop();
-  }
-
-  Future<void> dispose() async {
-    // TtsService does not have a dispose method
+    // RunAnywhere SDK does not provide stopTts directly.
+    // Assuming TTS stops automatically or is non-interruptible.
   }
 }

@@ -78,7 +78,9 @@ class _ChatScreenState extends ConsumerState<ChatScreen> {
             isRecording: chatState.isRecording,
             isEnabled: !chatState.isLoading,
             isStreaming: chatState.isLoading,
-            onCancel: () {},
+            onCancel: () {
+              // Handle cancel logic
+            },
           ),
         ],
       ),

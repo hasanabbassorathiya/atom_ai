@@ -55,8 +55,6 @@ class _DocumentsScreenState extends ConsumerState<DocumentsScreen> {
       await docService.addDocument(
         file.name,
         text,
-        chatModelId: activeModels.chatModel!.id,
-        embedderModelId: activeModels.embeddingModel!.id,
       );
       setState(() => _documents.add(file.name));
 
@@ -110,16 +108,15 @@ class _DocumentsScreenState extends ConsumerState<DocumentsScreen> {
 
     try {
       final docService = ref.read(documentServiceProvider);
-      await for (final chunk in docService.queryStream(text)) {
+      // Removed .isDone check as it's not present in the new SDK
+      await for (final content in docService.queryStream(text)) {
         if (!mounted) break;
-        if (!chunk.isFinal) {
-          setState(() {
-            _streamingText += chunk.token;
-          });
-          _scrollToBottom();
-        }
+        setState(() {
+          _streamingText += content;
+        });
+        _scrollToBottom();
       }
-      
+
       if (mounted && _streamingText.isNotEmpty) {
         setState(() {
           _messages.add(Message.assistant('doc_session', _streamingText));
@@ -237,6 +234,8 @@ class _DocumentsScreenState extends ConsumerState<DocumentsScreen> {
           
           ChatInput(
             onSend: _sendMessage,
+            onToggleRecording: () {}, // Basic toggle recording support
+            onAttachPressed: _pickDocument,
             isEnabled: _documents.isNotEmpty && !_isStreaming && !_isIndexing,
             isStreaming: _isStreaming,
             onCancel: () {}, // Basic cancel support

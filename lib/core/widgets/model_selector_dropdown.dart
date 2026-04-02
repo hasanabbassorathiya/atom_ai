@@ -1,6 +1,6 @@
-import 'package:edge_veda/edge_veda.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:runanywhere/runanywhere.dart'; // Import RunAnywhere
 
 import '../../services/active_models_service.dart';
 import '../../services/model_service.dart';
@@ -20,7 +20,7 @@ class ModelSelectorDropdown extends ConsumerStatefulWidget {
 }
 
 class _ModelSelectorDropdownState extends ConsumerState<ModelSelectorDropdown> {
-  List<ModelInfo> _downloadedModels = [];
+  List<AtomModelConfig> _downloadedModels = [];
   bool _isLoading = true;
 
   @override
@@ -35,7 +35,7 @@ class _ModelSelectorDropdownState extends ConsumerState<ModelSelectorDropdown> {
     
     try {
       final category = modelService.getModelCategories().firstWhere((c) => c.icon == categoryIcon);
-      final downloaded = <ModelInfo>[];
+      final downloaded = <AtomModelConfig>[];
       
       for (final model in category.models) {
         if (await modelService.isDownloaded(model.id)) {
@@ -74,7 +74,7 @@ class _ModelSelectorDropdownState extends ConsumerState<ModelSelectorDropdown> {
     };
   }
 
-  ModelInfo? _getCurrentModel(ActiveModelsState state) {
+  AtomModelConfig? _getCurrentModel(ActiveModelsState state) {
     return switch (widget.categoryType) {
       ModelCategoryType.chat => state.chatModel,
       ModelCategoryType.vision => state.visionModel,
@@ -84,7 +84,7 @@ class _ModelSelectorDropdownState extends ConsumerState<ModelSelectorDropdown> {
     };
   }
 
-  void _onModelSelected(ModelInfo? model) {
+  void _onModelSelected(AtomModelConfig? model) {
     if (model == null) return;
     
     final notifier = ref.read(activeModelsProvider.notifier);
@@ -136,13 +136,13 @@ class _ModelSelectorDropdownState extends ConsumerState<ModelSelectorDropdown> {
     }
 
     // Default to the first one if the currentModel is null or not found in downloaded
-    ModelInfo? selectedModel = currentModel;
+    AtomModelConfig? selectedModel = currentModel;
     if (selectedModel == null || !_downloadedModels.any((m) => m.id == selectedModel!.id)) {
       selectedModel = _downloadedModels.first;
     }
 
     return DropdownButtonHideUnderline(
-      child: DropdownButton<ModelInfo>(
+      child: DropdownButton<AtomModelConfig>(
         value: selectedModel,
         isDense: true,
         icon: const Icon(Icons.keyboard_arrow_down, size: 20),

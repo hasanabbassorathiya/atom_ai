@@ -1,6 +1,5 @@
 import 'dart:typed_data';
 import 'package:camera/camera.dart';
-import 'package:edge_veda/edge_veda.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:image/image.dart' as img;
@@ -51,40 +50,23 @@ class _VisionScreenState extends ConsumerState<VisionScreen> {
 
     try {
       final image = await _cameraController!.takePicture();
-      final bytes = await image.readAsBytes();
-      final decodedImage = img.decodeImage(bytes);
-      if (decodedImage == null) throw Exception('Failed to decode image');
-
-      // Convert to RGB888 as required by EdgeVeda.
-      final rgbImage = decodedImage.convert(format: img.Format.uint8);
-      final rgbBytes = Uint8List.fromList(rgbImage.toUint8List());
 
       final visionService = ref.read(visionServiceProvider);
       final activeModels = ref.read(activeModelsProvider);
+
       if (activeModels.visionModel == null) {
         throw Exception('Please select a Vision model first');
       }
 
-      if (!visionService.isVisionInitialized || visionService.currentModelId != activeModels.visionModel!.id) {
-        final modelPath = await ref.read(modelServiceProvider).getModelPath(activeModels.visionModel!.id);
-
-        final mmproj = ModelRegistry.getMmprojForModel(activeModels.visionModel!.id);
-        String? mmprojPath;
-        if (mmproj != null) {
-          mmprojPath = await ref.read(modelServiceProvider).getModelPath(mmproj.id);
-        }
-
+      if (!visionService.isVisionInitialized) {
         await visionService.initVision(
           modelId: activeModels.visionModel!.id,
-          modelPath: modelPath,
-          mmprojPath: mmprojPath,
         );
       }
 
       final desc = await visionService.describeImage(
-        rgbBytes,
-        width: rgbImage.width,
-        height: rgbImage.height,
+        image.path,
+        prompt: 'Describe this image.',
       );
       setState(() => _description = desc);
     } catch (e) {

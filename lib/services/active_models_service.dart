@@ -1,14 +1,14 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:edge_veda/edge_veda.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:runanywhere/runanywhere.dart';
 import 'model_service.dart';
 
 class ActiveModelsState {
-  final ModelInfo? chatModel;
-  final ModelInfo? visionModel;
-  final ModelInfo? sttModel;
-  final ModelInfo? imageModel;
-  final ModelInfo? embeddingModel;
+  final AtomModelConfig? chatModel;
+  final AtomModelConfig? visionModel;
+  final AtomModelConfig? sttModel;
+  final AtomModelConfig? imageModel;
+  final AtomModelConfig? embeddingModel;
 
   const ActiveModelsState({
     this.chatModel,
@@ -19,11 +19,11 @@ class ActiveModelsState {
   });
 
   ActiveModelsState copyWith({
-    ModelInfo? chatModel,
-    ModelInfo? visionModel,
-    ModelInfo? sttModel,
-    ModelInfo? imageModel,
-    ModelInfo? embeddingModel,
+    AtomModelConfig? chatModel,
+    AtomModelConfig? visionModel,
+    AtomModelConfig? sttModel,
+    AtomModelConfig? imageModel,
+    AtomModelConfig? embeddingModel,
   }) {
     return ActiveModelsState(
       chatModel: chatModel ?? this.chatModel,
@@ -51,13 +51,13 @@ class ActiveModelsNotifier extends Notifier<ActiveModelsState> {
   Future<void> _loadInitialModels() async {
     final modelService = ref.read(modelServiceProvider);
     final prefs = await SharedPreferences.getInstance();
-    
-    // Quick helper to find a model by ID if it's downloaded
-    Future<ModelInfo?> findIfDownloaded(String categoryIcon, String? preferredId) async {
+
+    // Updated to work with RunAnywhere-based AtomModelConfig
+    Future<AtomModelConfig?> findIfDownloaded(String categoryName, String? preferredId) async {
       try {
-        final category = modelService.getModelCategories().firstWhere((c) => c.icon == categoryIcon);
-        
-        // If we have a preferred ID from prefs, check if it's downloaded
+        final categories = modelService.getModelCategories();
+        final category = categories.firstWhere((c) => c.name == categoryName);
+
         if (preferredId != null) {
           final prefModel = category.models.firstWhere((m) => m.id == preferredId, orElse: () => category.models.first);
           if (await modelService.isDownloaded(prefModel.id)) {
@@ -65,7 +65,6 @@ class ActiveModelsNotifier extends Notifier<ActiveModelsState> {
           }
         }
 
-        // Fallback: pick the first downloaded model in this category
         for (final model in category.models) {
           if (await modelService.isDownloaded(model.id)) {
             return model;
@@ -77,11 +76,11 @@ class ActiveModelsNotifier extends Notifier<ActiveModelsState> {
       return null;
     }
 
-    final chatModel = await findIfDownloaded('chat', prefs.getString(_prefKeyChat));
-    final visionModel = await findIfDownloaded('visibility', prefs.getString(_prefKeyVision));
-    final sttModel = await findIfDownloaded('mic', prefs.getString(_prefKeyStt));
-    final imageModel = await findIfDownloaded('image', prefs.getString(_prefKeyImage));
-    final embeddingModel = await findIfDownloaded('hub', prefs.getString(_prefKeyEmbedding));
+    final chatModel = await findIfDownloaded('Chat Models', prefs.getString(_prefKeyChat));
+    final visionModel = await findIfDownloaded('Vision Models', prefs.getString(_prefKeyVision));
+    final sttModel = await findIfDownloaded('Speech-to-Text', prefs.getString(_prefKeyStt));
+    final imageModel = await findIfDownloaded('Image Generation', prefs.getString(_prefKeyImage));
+    final embeddingModel = await findIfDownloaded('Embeddings', prefs.getString(_prefKeyEmbedding));
 
     state = ActiveModelsState(
       chatModel: chatModel,
@@ -92,31 +91,31 @@ class ActiveModelsNotifier extends Notifier<ActiveModelsState> {
     );
   }
 
-  Future<void> setChatModel(ModelInfo model) async {
-    final prefs = await SharedPreferences.getInstance();
-    await prefs.setString(_prefKeyChat, model.id);
-    state = state.copyWith(chatModel: model);
-  }
-
-  Future<void> setVisionModel(ModelInfo model) async {
+  Future<void> setVisionModel(AtomModelConfig model) async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setString(_prefKeyVision, model.id);
     state = state.copyWith(visionModel: model);
   }
 
-  Future<void> setSttModel(ModelInfo model) async {
+  Future<void> setChatModel(AtomModelConfig model) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString(_prefKeyChat, model.id);
+    state = state.copyWith(chatModel: model);
+  }
+
+  Future<void> setSttModel(AtomModelConfig model) async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setString(_prefKeyStt, model.id);
     state = state.copyWith(sttModel: model);
   }
 
-  Future<void> setImageModel(ModelInfo model) async {
+  Future<void> setImageModel(AtomModelConfig model) async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setString(_prefKeyImage, model.id);
     state = state.copyWith(imageModel: model);
   }
 
-  Future<void> setEmbeddingModel(ModelInfo model) async {
+  Future<void> setEmbeddingModel(AtomModelConfig model) async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setString(_prefKeyEmbedding, model.id);
     state = state.copyWith(embeddingModel: model);

@@ -29,18 +29,20 @@ class ChatState {
   }
 }
 
-class ChatController extends StateNotifier<ChatState> {
-  final Ref ref;
-  final RunAnywhereService runAnywhereService;
+class ChatController extends Notifier<ChatState> {
+  @override
+  ChatState build() {
+    return ChatState();
+  }
 
-  ChatController(this.ref, this.runAnywhereService) : super(ChatState());
+  RunAnywhereService get _runAnywhereService => ref.read(runAnywhereServiceProvider);
 
   Future<void> sendMessage(String text) async {
     state = state.copyWith(isLoading: true, messages: [...state.messages, {'role': 'user', 'content': text}]);
 
     state = state.copyWith(messages: [...state.messages, {'role': 'assistant', 'content': ''}]);
 
-    final stream = await runAnywhereService.chatStream(text);
+    final stream = await _runAnywhereService.chatStream(text);
 
     await for (final token in stream) {
       final newMessages = List<Map<String, String>>.from(state.messages);
@@ -52,29 +54,34 @@ class ChatController extends StateNotifier<ChatState> {
 
   Future<void> toggleRecording() async {
     if (state.isRecording) {
-      runAnywhereService.stopVoiceSession();
-      state = state.copyWith(isRecording: false);
+      _runAnywhereService.stopVoiceSession();
+      state = state.copyWith(isRecording: false, status: null);
     } else {
-      state = state.copyWith(isRecording: true);
-      await runAnywhereService.startVoiceSession((transcript, response) {
+      state = state.copyWith(isRecording: true, status: 'Listening...');
+      await _runAnywhereService.startVoiceSession((transcript, response) {
         state = state.copyWith(
-          messages: [...state.messages, {'role': 'user', 'content': transcript}, {'role': 'assistant', 'content': response}],
+          messages: [
+            ...state.messages,
+            {'role': 'user', 'content': transcript},
+            {'role': 'assistant', 'content': response}
+          ],
           isRecording: false,
+          status: null,
         );
       });
     }
   }
 
   Future<void> sendImage(String imagePath) async {
-    state = state.copyWith(isLoading: true, messages: [...state.messages, {'role': 'user', 'content': 'Image attached'}]);
+    state = state.copyWith(isLoading: true, messages: [...state.messages, {'role': 'user', 'content': 'Analyzing image...'}]);
 
-    // Call RunAnywhere vision processing
-    await runAnywhereService.processVision(imagePath, "Describe this image");
-
-    state = state.copyWith(isLoading: false);
+    try {
+      await _runAnywhereService.processVision(imagePath, "Describe this image");
+      state = state.copyWith(isLoading: false, status: null);
+    } catch (e) {
+      state = state.copyWith(isLoading: false, status: 'Vision error: $e');
+    }
   }
 }
 
-final chatControllerProvider = StateNotifierProvider<ChatController, ChatState>((ref) {
-  return ChatController(ref, ref.watch(runAnywhereServiceProvider));
-});
+final chatControllerProvider = NotifierProvider<ChatController, ChatState>(ChatController.new);

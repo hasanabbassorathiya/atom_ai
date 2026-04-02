@@ -9,6 +9,7 @@ class ChatInput extends StatefulWidget {
   final VoidCallback onToggleRecording;
   final VoidCallback onAttachPressed;
   final bool isRecording;
+  final VoidCallback? onCancel;
 
   const ChatInput({
     super.key,
