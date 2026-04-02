@@ -1,0 +1,16 @@
+Analyzing atom_ai...                                            
+
+warning • Unused import: 'package:edge_veda/edge_veda.dart' • integration_test/vision_pipeline_test.dart:4:8 • unused_import
+warning • Unused import: 'package:atom_ai/services/tts_service.dart' • integration_test/voice_pipeline_test.dart:3:8 • unused_import
+warning • The value of the local variable 'runtime' isn't used • integration_test/voice_pipeline_test.dart:14:11 • unused_local_variable
+  error • The getter 'isRunning' isn't defined for the type 'VoiceNotifier' • integration_test/voice_pipeline_test.dart:19:25 • undefined_getter
+  error • The getter 'isRunning' isn't defined for the type 'VoiceNotifier' • integration_test/voice_pipeline_test.dart:23:25 • undefined_getter
+   info • 'Share' is deprecated and shouldn't be used. Use SharePlus instead • lib/features/chat/chat_screen.dart:299:46 • deprecated_member_use
+   info • 'share' is deprecated and shouldn't be used. Use SharePlus.instance.share() instead • lib/features/chat/chat_screen.dart:299:52 • deprecated_member_use
+  error • Undefined name 'ModelSelector' • lib/features/image_gen/image_gen_screen.dart:38:33 • undefined_identifier
+  error • There's no constant named 'rgb' in 'Format' • lib/features/vision/vision_screen.dart:48:64 • undefined_enum_constant
+   info • 'surfaceVariant' is deprecated and shouldn't be used. Use surfaceContainerHighest instead. This feature was deprecated after v3.18.0-0.1.pre • lib/features/vision/vision_screen.dart:91:38 • deprecated_member_use
+warning • Unused import: 'model_service.dart' • lib/services/document_service.dart:4:8 • unused_import
+warning • The value of the field '_modelService' isn't used • lib/services/image_service.dart:15:22 • unused_field
+  error • Undefined name 'modelServiceProvider' • lib/services/voice_service.dart:43:35 • undefined_identifier
+

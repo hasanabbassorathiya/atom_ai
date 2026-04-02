@@ -1,0 +1,542 @@
+Initialized native services in: /Users/macbookm1pro/.gradle/native
+Initialized jansi services in: /Users/macbookm1pro/.gradle/native
+Found daemon DaemonInfo{pid=59104, address=[6a02822b-90de-4a23-b24d-1c3ee8844af0 port:57741, addresses:[/127.0.0.1]], state=Idle, lastBusy=1774852059502, context=DefaultDaemonContext[uid=7fa8adb8-973a-4582-bc5e-f30cf49389e8,javaHome=/Applications/Android Studio.app/Contents/jbr/Contents/Home,javaVersion=21,javaVendor=JetBrains s.r.o.,daemonRegistryDir=/Users/macbookm1pro/.gradle/daemon,pid=59104,idleTimeout=10800000,priority=NORMAL,applyInstrumentationAgent=true,nativeServicesMode=ENABLED,daemonOpts=-XX:MaxMetaspaceSize=4G,-XX:ReservedCodeCacheSize=512m,-XX:+HeapDumpOnOutOfMemoryError,-Xmx8G,-Dfile.encoding=UTF-8,-Duser.country=AE,-Duser.language=en,-Duser.variant]} however its context does not match the desired criteria.
+JVM is incompatible.
+Wanted: DaemonRequestContext{jvmCriteria=/opt/homebrew/Cellar/openjdk@17/17.0.18/libexec/openjdk.jdk/Contents/Home (no JDK specified, using current Java home), daemonOpts=[-XX:MaxMetaspaceSize=4G, -XX:ReservedCodeCacheSize=512m, -XX:+HeapDumpOnOutOfMemoryError, -Xmx8G, -Dfile.encoding=UTF-8, -Duser.country=AE, -Duser.language=en, -Duser.variant], applyInstrumentationAgent=true, nativeServicesMode=ENABLED, priority=NORMAL}
+Actual: DefaultDaemonContext[uid=7fa8adb8-973a-4582-bc5e-f30cf49389e8,javaHome=/Applications/Android Studio.app/Contents/jbr/Contents/Home,javaVersion=21,javaVendor=JetBrains s.r.o.,daemonRegistryDir=/Users/macbookm1pro/.gradle/daemon,pid=59104,idleTimeout=10800000,priority=NORMAL,applyInstrumentationAgent=true,nativeServicesMode=ENABLED,daemonOpts=-XX:MaxMetaspaceSize=4G,-XX:ReservedCodeCacheSize=512m,-XX:+HeapDumpOnOutOfMemoryError,-Xmx8G,-Dfile.encoding=UTF-8,-Duser.country=AE,-Duser.language=en,-Duser.variant]
+
+  Looking for a different daemon...
+The client will now receive all logging from the daemon (pid: 55422). The daemon log file: /Users/macbookm1pro/.gradle/daemon/8.14/daemon-55422.out.log
+Starting 16th build in daemon [uptime: 59 mins 41.822 secs, performance: 100%, GC rate: 0.00/s, heap usage: 0% of 8 GiB, non-heap usage: 4% of 4 GiB]
+Using 10 worker leases.
+Now considering [/Users/macbookm1pro/Desktop/atom_ai/android, /Users/macbookm1pro/development/flutter/packages/flutter_tools/gradle] as hierarchies to watch
+Watching the file system is configured to be enabled if available
+File system watching is active
+Starting Build
+Now considering [/Users/macbookm1pro/development/flutter/packages/flutter_tools/gradle, /Users/macbookm1pro/Desktop/atom_ai/android] as hierarchies to watch
+
+> Configure project :gradle
+Evaluating project ':gradle' using build file '/Users/macbookm1pro/development/flutter/packages/flutter_tools/gradle/build.gradle.kts'.
+Resolved plugin [id: 'org.gradle.java-gradle-plugin']
+Resolved plugin [id: 'org.gradle.groovy']
+Resolved plugin [id: 'org.gradle.kotlin.kotlin-dsl', version: '5.2.0']
+Resolved plugin [id: 'org.jetbrains.kotlin.jvm', version: '1.9.20']
+Using Kotlin Gradle Plugin gradle85 variant
+kotlin scripting plugin: created the scripting discovery configuration: kotlinScriptDef
+kotlin scripting plugin: created the scripting discovery configuration: testKotlinScriptDef
+file or directory '/Users/macbookm1pro/development/flutter/packages/flutter_tools/gradle/src/main/java', not found
+Resolved plugin [id: 'dev.flutter.flutter-plugin-loader', version: '1.0.0']
+Resolved plugin [id: 'com.android.application', version: '8.11.1', apply: false]
+Resolved plugin [id: 'com.google.gms.google-services', version: '4.3.15', apply: false]
+Resolved plugin [id: 'org.jetbrains.kotlin.android', version: '2.2.20', apply: false]
+Resolve mutations for :gradle:checkKotlinGradlePluginConfigurationErrors (Thread[Execution worker,5,main]) started.
+:gradle:checkKotlinGradlePluginConfigurationErrors (Thread[Execution worker,5,main]) started.
+
+> Task :gradle:checkKotlinGradlePluginConfigurationErrors SKIPPED
+Skipping task ':gradle:checkKotlinGradlePluginConfigurationErrors' as task onlyIf 'errorDiagnostics are present' is false.
+Resolve mutations for :gradle:compileKotlin (Thread[Execution worker,5,main]) started.
+:gradle:compileKotlin (Thread[Execution worker,5,main]) started.
+
+> Task :gradle:compileKotlin UP-TO-DATE
+Caching disabled for task ':gradle:compileKotlin' because:
+  Build cache is disabled
+Skipping task ':gradle:compileKotlin' as it is up-to-date.
+Resolve mutations for :gradle:compileJava (Thread[Execution worker,5,main]) started.
+:gradle:compileJava (Thread[Execution worker,5,main]) started.
+
+> Task :gradle:compileJava NO-SOURCE
+Skipping task ':gradle:compileJava' as it has no source files and no previous output files.
+Resolve mutations for :gradle:compileGroovy (Thread[Execution worker,5,main]) started.
+:gradle:compileGroovy (Thread[Execution worker,5,main]) started.
+
+> Task :gradle:compileGroovy NO-SOURCE
+Skipping task ':gradle:compileGroovy' as it has no source files and no previous output files.
+Resolve mutations for :gradle:pluginDescriptors (Thread[Execution worker,5,main]) started.
+:gradle:pluginDescriptors (Thread[Execution worker,5,main]) started.
+
+> Task :gradle:pluginDescriptors UP-TO-DATE
+Caching disabled for task ':gradle:pluginDescriptors' because:
+  Build cache is disabled
+  Not worth caching
+Skipping task ':gradle:pluginDescriptors' as it is up-to-date.
+Resolve mutations for :gradle:processResources (Thread[Execution worker,5,main]) started.
+:gradle:processResources (Thread[Execution worker,5,main]) started.
+
+> Task :gradle:processResources UP-TO-DATE
+Caching disabled for task ':gradle:processResources' because:
+  Build cache is disabled
+  Not worth caching
+Skipping task ':gradle:processResources' as it is up-to-date.
+Resolve mutations for :gradle:classes (Thread[Execution worker,5,main]) started.
+:gradle:classes (Thread[Execution worker,5,main]) started.
+
+> Task :gradle:classes UP-TO-DATE
+Skipping task ':gradle:classes' as it has no actions.
+Resolve mutations for :gradle:jar (Thread[Execution worker,5,main]) started.
+:gradle:jar (Thread[Execution worker Thread 9,5,main]) started.
+
+> Task :gradle:jar UP-TO-DATE
+Caching disabled for task ':gradle:jar' because:
+  Build cache is disabled
+  Not worth caching
+Skipping task ':gradle:jar' as it is up-to-date.
+Settings evaluated using settings file '/Users/macbookm1pro/Desktop/atom_ai/android/settings.gradle.kts'.
+Projects loaded. Root project using build file '/Users/macbookm1pro/Desktop/atom_ai/android/build.gradle.kts'.
+Included projects: [root project 'android', project ':app', project ':camera_android_camerax', project ':edge_veda', project ':file_picker', project ':firebase_core', project ':flutter_plugin_android_lifecycle', project ':image_picker_android', project ':integration_test', project ':path_provider_android', project ':permission_handler_android', project ':share_plus', project ':shared_preferences_android', project ':sqflite_android']
+
+> Configure project :app
+Evaluating project ':app' using build file '/Users/macbookm1pro/Desktop/atom_ai/android/app/build.gradle.kts'.
+Resolved plugin [id: 'com.android.application']
+Resolved plugin [id: 'com.google.gms.google-services']
+Resolved plugin [id: 'kotlin-android']
+Resolved plugin [id: 'dev.flutter.flutter-gradle-plugin']
+Using default execution profile
+Build a9643557-a22e-4e41-9a20-26ddbf99c0b0 is started
+Using Kotlin Gradle Plugin gradle813 variant
+C/C++: android.ndkVersion from module build.gradle is [28.2.13676358]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/macbookm1pro/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [28.2.13676358]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/macbookm1pro/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [28.2.13676358]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/macbookm1pro/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [28.2.13676358]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/macbookm1pro/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [28.2.13676358]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/macbookm1pro/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [28.2.13676358]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/macbookm1pro/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [28.2.13676358]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/macbookm1pro/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [28.2.13676358]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/macbookm1pro/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [28.2.13676358]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/macbookm1pro/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [28.2.13676358]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/macbookm1pro/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [28.2.13676358]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/macbookm1pro/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [28.2.13676358]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/macbookm1pro/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [28.2.13676358]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/macbookm1pro/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [28.2.13676358]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/macbookm1pro/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [28.2.13676358]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/macbookm1pro/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [28.2.13676358]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/macbookm1pro/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [28.2.13676358]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/macbookm1pro/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [28.2.13676358]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/macbookm1pro/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [28.2.13676358]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/macbookm1pro/Library/Android/sdk
+
+> Configure project :
+Evaluating root project 'android' using build file '/Users/macbookm1pro/Desktop/atom_ai/android/build.gradle.kts'.
+
+> Configure project :camera_android_camerax
+Evaluating project ':camera_android_camerax' using build file '/Users/macbookm1pro/.pub-cache/hosted/pub.dev/camera_android_camerax-0.6.30/android/build.gradle'.
+Using default execution profile
+Using Kotlin Gradle Plugin gradle813 variant
+
+> Configure project :edge_veda
+Evaluating project ':edge_veda' using build file '/Users/macbookm1pro/Desktop/edge-veda/flutter/android/build.gradle'.
+Using default execution profile
+Using Kotlin Gradle Plugin gradle813 variant
+C/C++: android.ndkVersion from module build.gradle is [27.2.12479018]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/macbookm1pro/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.2.12479018]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/macbookm1pro/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.2.12479018]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/macbookm1pro/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.2.12479018]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/macbookm1pro/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.2.12479018]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/macbookm1pro/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.2.12479018]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/macbookm1pro/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.2.12479018]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/macbookm1pro/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.2.12479018]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/macbookm1pro/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.2.12479018]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/macbookm1pro/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.2.12479018]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/macbookm1pro/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.2.12479018]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/macbookm1pro/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.2.12479018]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/macbookm1pro/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.2.12479018]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/macbookm1pro/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.2.12479018]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/macbookm1pro/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.2.12479018]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/macbookm1pro/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.2.12479018]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/macbookm1pro/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.2.12479018]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/macbookm1pro/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.2.12479018]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/macbookm1pro/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.2.12479018]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/macbookm1pro/Library/Android/sdk
+Adding -Xuse-inline-scopes-numbers Kotlin compiler flag for task :edge_veda:compileDebugAndroidTestKotlin
+
+> Configure project :file_picker
+Evaluating project ':file_picker' using build file '/Users/macbookm1pro/.pub-cache/hosted/pub.dev/file_picker-10.3.10/android/build.gradle'.
+Using default execution profile
+Using Kotlin Gradle Plugin gradle813 variant
+
+> Configure project :firebase_core
+Evaluating project ':firebase_core' using build file '/Users/macbookm1pro/.pub-cache/hosted/pub.dev/firebase_core-4.6.0/android/build.gradle'.
+Using default execution profile
+
+> Configure project :flutter_plugin_android_lifecycle
+Evaluating project ':flutter_plugin_android_lifecycle' using build file '/Users/macbookm1pro/.pub-cache/hosted/pub.dev/flutter_plugin_android_lifecycle-2.0.34/android/build.gradle.kts'.
+Resolved plugin [id: 'com.android.library']
+Using default execution profile
+
+> Configure project :image_picker_android
+Evaluating project ':image_picker_android' using build file '/Users/macbookm1pro/.pub-cache/hosted/pub.dev/image_picker_android-0.8.13+15/android/build.gradle.kts'.
+Resolved plugin [id: 'com.android.library']
+Using default execution profile
+
+> Configure project :integration_test
+Evaluating project ':integration_test' using build file '/Users/macbookm1pro/development/flutter/packages/integration_test/android/build.gradle.kts'.
+Resolved plugin [id: 'com.android.library']
+Using default execution profile
+
+> Configure project :path_provider_android
+Evaluating project ':path_provider_android' using build file '/Users/macbookm1pro/.pub-cache/hosted/pub.dev/path_provider_android-2.2.23/android/build.gradle.kts'.
+Resolved plugin [id: 'com.android.library']
+Using default execution profile
+
+> Configure project :permission_handler_android
+Evaluating project ':permission_handler_android' using build file '/Users/macbookm1pro/.pub-cache/hosted/pub.dev/permission_handler_android-13.0.1/android/build.gradle'.
+Using default execution profile
+
+> Configure project :share_plus
+Evaluating project ':share_plus' using build file '/Users/macbookm1pro/.pub-cache/hosted/pub.dev/share_plus-12.0.1/android/build.gradle'.
+Using default execution profile
+Using Kotlin Gradle Plugin gradle813 variant
+
+> Configure project :shared_preferences_android
+Evaluating project ':shared_preferences_android' using build file '/Users/macbookm1pro/.pub-cache/hosted/pub.dev/shared_preferences_android-2.4.23/android/build.gradle.kts'.
+Resolved plugin [id: 'com.android.library']
+Resolved plugin [id: 'kotlin-android']
+Using default execution profile
+Using Kotlin Gradle Plugin gradle813 variant
+
+> Configure project :sqflite_android
+Evaluating project ':sqflite_android' using build file '/Users/macbookm1pro/.pub-cache/hosted/pub.dev/sqflite_android-2.4.2+3/android/build.gradle'.
+Using default execution profile
+All projects evaluated.
+Task path ':edge_veda:configureCMakeDebug' matched project ':edge_veda'
+Task name matched 'configureCMakeDebug'
+Selected primary task 'configureCMakeDebug' from project :edge_veda
+Tasks to be executed: [task ':edge_veda:generateHeaders', task ':edge_veda:preBuild', task ':edge_veda:preProfileBuild', task ':edge_veda:configureCMakeDebug[arm64-v8a]', task ':edge_veda:configureCMakeDebug[armeabi-v7a]', task ':edge_veda:configureCMakeDebug[x86_64]', task ':edge_veda:configureCMakeDebug']
+Tasks that were excluded: []
+Resolve mutations for :edge_veda:generateHeaders (Thread[Execution worker Thread 9,5,main]) started.
+:edge_veda:generateHeaders (Thread[Execution worker Thread 9,5,main]) started.
+
+> Task :edge_veda:generateHeaders SKIPPED
+Skipping task ':edge_veda:generateHeaders' as task onlyIf 'Task satisfies onlyIf closure' is false.
+Resolve mutations for :edge_veda:preBuild (Thread[Execution worker Thread 9,5,main]) started.
+:edge_veda:preBuild (Thread[Execution worker Thread 9,5,main]) started.
+
+> Task :edge_veda:preBuild UP-TO-DATE
+Skipping task ':edge_veda:preBuild' as it has no actions.
+Resolve mutations for :edge_veda:preProfileBuild (Thread[Execution worker Thread 9,5,main]) started.
+:edge_veda:preProfileBuild (Thread[Execution worker Thread 9,5,main]) started.
+
+> Task :edge_veda:preProfileBuild UP-TO-DATE
+Skipping task ':edge_veda:preProfileBuild' as it has no actions.
+Resolve mutations for :edge_veda:configureCMakeDebug[arm64-v8a] (Thread[Execution worker Thread 9,5,main]) started.
+:edge_veda:configureCMakeDebug[arm64-v8a] (Thread[Execution worker Thread 9,5,main]) started.
+
+> Task :edge_veda:configureCMakeDebug[arm64-v8a]
+Caching disabled for task ':edge_veda:configureCMakeDebug[arm64-v8a]' because:
+  Build cache is disabled
+  Caching has been disabled for the task
+Task ':edge_veda:configureCMakeDebug[arm64-v8a]' is not up-to-date because:
+  Task.upToDateWhen is false.
+C/C++: /Users/macbookm1pro/Desktop/edge-veda/core/CMakeLists.txt profile|arm64-v8a : Start JSON generation. Platform version: 24 min SDK version: arm64-v8a
+C/C++: /Users/macbookm1pro/Desktop/edge-veda/core/CMakeLists.txt profile|arm64-v8a : JSON '/Users/macbookm1pro/Desktop/edge-veda/flutter/android/.cxx/Debug/1t28672t/arm64-v8a/android_gradle_build.json' was up-to-date
+C/C++: /Users/macbookm1pro/Desktop/edge-veda/core/CMakeLists.txt profile|arm64-v8a : JSON generation completed without problems
+C/C++: /Users/macbookm1pro/Desktop/edge-veda/core/CMakeLists.txt profile|arm64-v8a : Writing build model to /Users/macbookm1pro/Desktop/atom_ai/build/edge_veda/intermediates/cxx/Debug/1t28672t/logs/arm64-v8a/build_model.json
+Resolve mutations for :edge_veda:configureCMakeDebug[armeabi-v7a] (Thread[Execution worker Thread 9,5,main]) started.
+:edge_veda:configureCMakeDebug[armeabi-v7a] (Thread[Execution worker Thread 9,5,main]) started.
+
+> Task :edge_veda:configureCMakeDebug[armeabi-v7a]
+Caching disabled for task ':edge_veda:configureCMakeDebug[armeabi-v7a]' because:
+  Build cache is disabled
+  Caching has been disabled for the task
+Task ':edge_veda:configureCMakeDebug[armeabi-v7a]' is not up-to-date because:
+  Task.upToDateWhen is false.
+C/C++: /Users/macbookm1pro/Desktop/edge-veda/core/CMakeLists.txt profile|armeabi-v7a : Start JSON generation. Platform version: 24 min SDK version: armeabi-v7a
+C/C++: /Users/macbookm1pro/Desktop/edge-veda/core/CMakeLists.txt profile|armeabi-v7a : rebuilding JSON /Users/macbookm1pro/Desktop/edge-veda/flutter/android/.cxx/Debug/1t28672t/armeabi-v7a/android_gradle_build.json due to:
+C/C++: /Users/macbookm1pro/Desktop/edge-veda/core/CMakeLists.txt profile|armeabi-v7a : - a file changed
+C/C++: /Users/macbookm1pro/Desktop/edge-veda/core/CMakeLists.txt profile|armeabi-v7a :   - /Users/macbookm1pro/Desktop/edge-veda/core/CMakeLists.txt (LAST_MODIFIED_CHANGED)
+C/C++: /Users/macbookm1pro/Desktop/edge-veda/core/CMakeLists.txt profile|armeabi-v7a :   - /Users/macbookm1pro/Desktop/edge-veda/flutter/android/.cxx/Debug/1t28672t/armeabi-v7a/build.ninja (LAST_MODIFIED_CHANGED)
+C/C++: /Users/macbookm1pro/Desktop/edge-veda/core/CMakeLists.txt profile|armeabi-v7a :   - /Users/macbookm1pro/Desktop/edge-veda/flutter/android/.cxx/Debug/1t28672t/armeabi-v7a/compile_commands.json (LAST_MODIFIED_CHANGED)
+C/C++: /Users/macbookm1pro/Desktop/edge-veda/core/CMakeLists.txt profile|armeabi-v7a : keeping json folder '/Users/macbookm1pro/Desktop/edge-veda/flutter/android/.cxx/Debug/1t28672t/armeabi-v7a' but regenerating project
+C/C++: /Users/macbookm1pro/Desktop/edge-veda/core/CMakeLists.txt profile|armeabi-v7a : executing cmake /Users/macbookm1pro/Library/Android/sdk/cmake/3.22.1/bin/cmake \
+  -H/Users/macbookm1pro/Desktop/edge-veda/core \
+  -DCMAKE_SYSTEM_NAME=Android \
+  -DCMAKE_EXPORT_COMPILE_COMMANDS=ON \
+  -DCMAKE_SYSTEM_VERSION=24 \
+  -DANDROID_ABI=armeabi-v7a \
+  -DCMAKE_ANDROID_ARCH_ABI=armeabi-v7a \
+  -DANDROID_NDK=/Users/macbookm1pro/Library/Android/sdk/ndk/27.2.12479018 \
+  -DCMAKE_ANDROID_NDK=/Users/macbookm1pro/Library/Android/sdk/ndk/27.2.12479018 \
+  -DCMAKE_TOOLCHAIN_FILE=/Users/macbookm1pro/Library/Android/sdk/ndk/27.2.12479018/build/cmake/android.toolchain.cmake \
+  -DCMAKE_MAKE_PROGRAM=/Users/macbookm1pro/Library/Android/sdk/cmake/3.22.1/bin/ninja \
+  "-DCMAKE_CXX_FLAGS=-std=c++17 -frtti -fexceptions" \
+  -DCMAKE_LIBRARY_OUTPUT_DIRECTORY=/Users/macbookm1pro/Desktop/atom_ai/build/edge_veda/intermediates/cxx/Debug/1t28672t/obj/armeabi-v7a \
+  -DCMAKE_RUNTIME_OUTPUT_DIRECTORY=/Users/macbookm1pro/Desktop/atom_ai/build/edge_veda/intermediates/cxx/Debug/1t28672t/obj/armeabi-v7a \
+  -DCMAKE_BUILD_TYPE=Debug \
+  -B/Users/macbookm1pro/Desktop/edge-veda/flutter/android/.cxx/Debug/1t28672t/armeabi-v7a \
+  -GNinja \
+  -DANDROID_STL=c++_shared \
+  -DANDROID_PLATFORM=android-24 \
+  -DEDGE_VEDA_ENABLE_VULKAN=OFF \
+  -DEDGE_VEDA_ENABLE_CPU=ON \
+  -DGGML_OPENMP=OFF
+
+C/C++: /Users/macbookm1pro/Desktop/edge-veda/core/CMakeLists.txt profile|armeabi-v7a : /Users/macbookm1pro/Library/Android/sdk/cmake/3.22.1/bin/cmake \
+  -H/Users/macbookm1pro/Desktop/edge-veda/core \
+  -DCMAKE_SYSTEM_NAME=Android \
+  -DCMAKE_EXPORT_COMPILE_COMMANDS=ON \
+  -DCMAKE_SYSTEM_VERSION=24 \
+  -DANDROID_ABI=armeabi-v7a \
+  -DCMAKE_ANDROID_ARCH_ABI=armeabi-v7a \
+  -DANDROID_NDK=/Users/macbookm1pro/Library/Android/sdk/ndk/27.2.12479018 \
+  -DCMAKE_ANDROID_NDK=/Users/macbookm1pro/Library/Android/sdk/ndk/27.2.12479018 \
+  -DCMAKE_TOOLCHAIN_FILE=/Users/macbookm1pro/Library/Android/sdk/ndk/27.2.12479018/build/cmake/android.toolchain.cmake \
+  -DCMAKE_MAKE_PROGRAM=/Users/macbookm1pro/Library/Android/sdk/cmake/3.22.1/bin/ninja \
+  "-DCMAKE_CXX_FLAGS=-std=c++17 -frtti -fexceptions" \
+  -DCMAKE_LIBRARY_OUTPUT_DIRECTORY=/Users/macbookm1pro/Desktop/atom_ai/build/edge_veda/intermediates/cxx/Debug/1t28672t/obj/armeabi-v7a \
+  -DCMAKE_RUNTIME_OUTPUT_DIRECTORY=/Users/macbookm1pro/Desktop/atom_ai/build/edge_veda/intermediates/cxx/Debug/1t28672t/obj/armeabi-v7a \
+  -DCMAKE_BUILD_TYPE=Debug \
+  -B/Users/macbookm1pro/Desktop/edge-veda/flutter/android/.cxx/Debug/1t28672t/armeabi-v7a \
+  -GNinja \
+  -DANDROID_STL=c++_shared \
+  -DANDROID_PLATFORM=android-24 \
+  -DEDGE_VEDA_ENABLE_VULKAN=OFF \
+  -DEDGE_VEDA_ENABLE_CPU=ON \
+  -DGGML_OPENMP=OFF
+
+Starting process 'command '/Users/macbookm1pro/Library/Android/sdk/cmake/3.22.1/bin/cmake''. Working directory: /Users/macbookm1pro/Desktop/edge-veda/flutter/android Command: /Users/macbookm1pro/Library/Android/sdk/cmake/3.22.1/bin/cmake -H/Users/macbookm1pro/Desktop/edge-veda/core -DCMAKE_SYSTEM_NAME=Android -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_SYSTEM_VERSION=24 -DANDROID_ABI=armeabi-v7a -DCMAKE_ANDROID_ARCH_ABI=armeabi-v7a -DANDROID_NDK=/Users/macbookm1pro/Library/Android/sdk/ndk/27.2.12479018 -DCMAKE_ANDROID_NDK=/Users/macbookm1pro/Library/Android/sdk/ndk/27.2.12479018 -DCMAKE_TOOLCHAIN_FILE=/Users/macbookm1pro/Library/Android/sdk/ndk/27.2.12479018/build/cmake/android.toolchain.cmake -DCMAKE_MAKE_PROGRAM=/Users/macbookm1pro/Library/Android/sdk/cmake/3.22.1/bin/ninja -DCMAKE_CXX_FLAGS=-std=c++17 -frtti -fexceptions -DCMAKE_LIBRARY_OUTPUT_DIRECTORY=/Users/macbookm1pro/Desktop/atom_ai/build/edge_veda/intermediates/cxx/Debug/1t28672t/obj/armeabi-v7a -DCMAKE_RUNTIME_OUTPUT_DIRECTORY=/Users/macbookm1pro/Desktop/atom_ai/build/edge_veda/intermediates/cxx/Debug/1t28672t/obj/armeabi-v7a -DCMAKE_BUILD_TYPE=Debug -B/Users/macbookm1pro/Desktop/edge-veda/flutter/android/.cxx/Debug/1t28672t/armeabi-v7a -GNinja -DANDROID_STL=c++_shared -DANDROID_PLATFORM=android-24 -DEDGE_VEDA_ENABLE_VULKAN=OFF -DEDGE_VEDA_ENABLE_CPU=ON -DGGML_OPENMP=OFF
+Successfully started process 'command '/Users/macbookm1pro/Library/Android/sdk/cmake/3.22.1/bin/cmake''
+C/C++: CMAKE_BUILD_TYPE=Debug
+C/C++: -- Build static library
+C/C++: /Users/macbookm1pro/Desktop/edge-veda/core/CMakeLists.txt profile|armeabi-v7a : Received process result: 0
+C/C++: /Users/macbookm1pro/Desktop/edge-veda/core/CMakeLists.txt profile|armeabi-v7a : Exiting generation of /Users/macbookm1pro/Desktop/edge-veda/flutter/android/.cxx/Debug/1t28672t/armeabi-v7a/compile_commands.json.bin normally
+C/C++: /Users/macbookm1pro/Desktop/edge-veda/core/CMakeLists.txt profile|armeabi-v7a : done executing cmake
+C/C++: /Users/macbookm1pro/Desktop/edge-veda/core/CMakeLists.txt profile|armeabi-v7a : JSON generation completed without problems
+C/C++: /Users/macbookm1pro/Desktop/edge-veda/core/CMakeLists.txt profile|armeabi-v7a : Writing build model to /Users/macbookm1pro/Desktop/atom_ai/build/edge_veda/intermediates/cxx/Debug/1t28672t/logs/armeabi-v7a/build_model.json
+Resolve mutations for :edge_veda:configureCMakeDebug[x86_64] (Thread[Execution worker Thread 9,5,main]) started.
+:edge_veda:configureCMakeDebug[x86_64] (Thread[Execution worker Thread 9,5,main]) started.
+
+> Task :edge_veda:configureCMakeDebug[x86_64]
+Caching disabled for task ':edge_veda:configureCMakeDebug[x86_64]' because:
+  Build cache is disabled
+  Caching has been disabled for the task
+Task ':edge_veda:configureCMakeDebug[x86_64]' is not up-to-date because:
+  Task.upToDateWhen is false.
+C/C++: /Users/macbookm1pro/Desktop/edge-veda/core/CMakeLists.txt profile|x86_64 : Start JSON generation. Platform version: 24 min SDK version: x86_64
+C/C++: /Users/macbookm1pro/Desktop/edge-veda/core/CMakeLists.txt profile|x86_64 : rebuilding JSON /Users/macbookm1pro/Desktop/edge-veda/flutter/android/.cxx/Debug/1t28672t/x86_64/android_gradle_build.json due to:
+C/C++: /Users/macbookm1pro/Desktop/edge-veda/core/CMakeLists.txt profile|x86_64 : - a file changed
+C/C++: /Users/macbookm1pro/Desktop/edge-veda/core/CMakeLists.txt profile|x86_64 :   - /Users/macbookm1pro/Desktop/edge-veda/core/CMakeLists.txt (LAST_MODIFIED_CHANGED)
+C/C++: /Users/macbookm1pro/Desktop/edge-veda/core/CMakeLists.txt profile|x86_64 :   - /Users/macbookm1pro/Desktop/edge-veda/flutter/android/.cxx/Debug/1t28672t/x86_64/build.ninja (LAST_MODIFIED_CHANGED)
+C/C++: /Users/macbookm1pro/Desktop/edge-veda/core/CMakeLists.txt profile|x86_64 :   - /Users/macbookm1pro/Desktop/edge-veda/flutter/android/.cxx/Debug/1t28672t/x86_64/compile_commands.json (LAST_MODIFIED_CHANGED)
+C/C++: /Users/macbookm1pro/Desktop/edge-veda/core/CMakeLists.txt profile|x86_64 : keeping json folder '/Users/macbookm1pro/Desktop/edge-veda/flutter/android/.cxx/Debug/1t28672t/x86_64' but regenerating project
+C/C++: /Users/macbookm1pro/Desktop/edge-veda/core/CMakeLists.txt profile|x86_64 : executing cmake /Users/macbookm1pro/Library/Android/sdk/cmake/3.22.1/bin/cmake \
+  -H/Users/macbookm1pro/Desktop/edge-veda/core \
+  -DCMAKE_SYSTEM_NAME=Android \
+  -DCMAKE_EXPORT_COMPILE_COMMANDS=ON \
+  -DCMAKE_SYSTEM_VERSION=24 \
+  -DANDROID_ABI=x86_64 \
+  -DCMAKE_ANDROID_ARCH_ABI=x86_64 \
+  -DANDROID_NDK=/Users/macbookm1pro/Library/Android/sdk/ndk/27.2.12479018 \
+  -DCMAKE_ANDROID_NDK=/Users/macbookm1pro/Library/Android/sdk/ndk/27.2.12479018 \
+  -DCMAKE_TOOLCHAIN_FILE=/Users/macbookm1pro/Library/Android/sdk/ndk/27.2.12479018/build/cmake/android.toolchain.cmake \
+  -DCMAKE_MAKE_PROGRAM=/Users/macbookm1pro/Library/Android/sdk/cmake/3.22.1/bin/ninja \
+  "-DCMAKE_CXX_FLAGS=-std=c++17 -frtti -fexceptions" \
+  -DCMAKE_LIBRARY_OUTPUT_DIRECTORY=/Users/macbookm1pro/Desktop/atom_ai/build/edge_veda/intermediates/cxx/Debug/1t28672t/obj/x86_64 \
+  -DCMAKE_RUNTIME_OUTPUT_DIRECTORY=/Users/macbookm1pro/Desktop/atom_ai/build/edge_veda/intermediates/cxx/Debug/1t28672t/obj/x86_64 \
+  -DCMAKE_BUILD_TYPE=Debug \
+  -B/Users/macbookm1pro/Desktop/edge-veda/flutter/android/.cxx/Debug/1t28672t/x86_64 \
+  -GNinja \
+  -DANDROID_STL=c++_shared \
+  -DANDROID_PLATFORM=android-24 \
+  -DEDGE_VEDA_ENABLE_VULKAN=OFF \
+  -DEDGE_VEDA_ENABLE_CPU=ON \
+  -DGGML_OPENMP=OFF
+
+C/C++: /Users/macbookm1pro/Desktop/edge-veda/core/CMakeLists.txt profile|x86_64 : /Users/macbookm1pro/Library/Android/sdk/cmake/3.22.1/bin/cmake \
+  -H/Users/macbookm1pro/Desktop/edge-veda/core \
+  -DCMAKE_SYSTEM_NAME=Android \
+  -DCMAKE_EXPORT_COMPILE_COMMANDS=ON \
+  -DCMAKE_SYSTEM_VERSION=24 \
+  -DANDROID_ABI=x86_64 \
+  -DCMAKE_ANDROID_ARCH_ABI=x86_64 \
+  -DANDROID_NDK=/Users/macbookm1pro/Library/Android/sdk/ndk/27.2.12479018 \
+  -DCMAKE_ANDROID_NDK=/Users/macbookm1pro/Library/Android/sdk/ndk/27.2.12479018 \
+  -DCMAKE_TOOLCHAIN_FILE=/Users/macbookm1pro/Library/Android/sdk/ndk/27.2.12479018/build/cmake/android.toolchain.cmake \
+  -DCMAKE_MAKE_PROGRAM=/Users/macbookm1pro/Library/Android/sdk/cmake/3.22.1/bin/ninja \
+  "-DCMAKE_CXX_FLAGS=-std=c++17 -frtti -fexceptions" \
+  -DCMAKE_LIBRARY_OUTPUT_DIRECTORY=/Users/macbookm1pro/Desktop/atom_ai/build/edge_veda/intermediates/cxx/Debug/1t28672t/obj/x86_64 \
+  -DCMAKE_RUNTIME_OUTPUT_DIRECTORY=/Users/macbookm1pro/Desktop/atom_ai/build/edge_veda/intermediates/cxx/Debug/1t28672t/obj/x86_64 \
+  -DCMAKE_BUILD_TYPE=Debug \
+  -B/Users/macbookm1pro/Desktop/edge-veda/flutter/android/.cxx/Debug/1t28672t/x86_64 \
+  -GNinja \
+  -DANDROID_STL=c++_shared \
+  -DANDROID_PLATFORM=android-24 \
+  -DEDGE_VEDA_ENABLE_VULKAN=OFF \
+  -DEDGE_VEDA_ENABLE_CPU=ON \
+  -DGGML_OPENMP=OFF
+
+Starting process 'command '/Users/macbookm1pro/Library/Android/sdk/cmake/3.22.1/bin/cmake''. Working directory: /Users/macbookm1pro/Desktop/edge-veda/flutter/android Command: /Users/macbookm1pro/Library/Android/sdk/cmake/3.22.1/bin/cmake -H/Users/macbookm1pro/Desktop/edge-veda/core -DCMAKE_SYSTEM_NAME=Android -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_SYSTEM_VERSION=24 -DANDROID_ABI=x86_64 -DCMAKE_ANDROID_ARCH_ABI=x86_64 -DANDROID_NDK=/Users/macbookm1pro/Library/Android/sdk/ndk/27.2.12479018 -DCMAKE_ANDROID_NDK=/Users/macbookm1pro/Library/Android/sdk/ndk/27.2.12479018 -DCMAKE_TOOLCHAIN_FILE=/Users/macbookm1pro/Library/Android/sdk/ndk/27.2.12479018/build/cmake/android.toolchain.cmake -DCMAKE_MAKE_PROGRAM=/Users/macbookm1pro/Library/Android/sdk/cmake/3.22.1/bin/ninja -DCMAKE_CXX_FLAGS=-std=c++17 -frtti -fexceptions -DCMAKE_LIBRARY_OUTPUT_DIRECTORY=/Users/macbookm1pro/Desktop/atom_ai/build/edge_veda/intermediates/cxx/Debug/1t28672t/obj/x86_64 -DCMAKE_RUNTIME_OUTPUT_DIRECTORY=/Users/macbookm1pro/Desktop/atom_ai/build/edge_veda/intermediates/cxx/Debug/1t28672t/obj/x86_64 -DCMAKE_BUILD_TYPE=Debug -B/Users/macbookm1pro/Desktop/edge-veda/flutter/android/.cxx/Debug/1t28672t/x86_64 -GNinja -DANDROID_STL=c++_shared -DANDROID_PLATFORM=android-24 -DEDGE_VEDA_ENABLE_VULKAN=OFF -DEDGE_VEDA_ENABLE_CPU=ON -DGGML_OPENMP=OFF
+Successfully started process 'command '/Users/macbookm1pro/Library/Android/sdk/cmake/3.22.1/bin/cmake''
+C/C++: CMAKE_BUILD_TYPE=Debug
+C/C++: -- Build static library
+C/C++: /Users/macbookm1pro/Desktop/edge-veda/core/CMakeLists.txt profile|x86_64 : Received process result: 0
+C/C++: /Users/macbookm1pro/Desktop/edge-veda/core/CMakeLists.txt profile|x86_64 : Exiting generation of /Users/macbookm1pro/Desktop/edge-veda/flutter/android/.cxx/Debug/1t28672t/x86_64/compile_commands.json.bin normally
+C/C++: /Users/macbookm1pro/Desktop/edge-veda/core/CMakeLists.txt profile|x86_64 : done executing cmake
+C/C++: /Users/macbookm1pro/Desktop/edge-veda/core/CMakeLists.txt profile|x86_64 : JSON generation completed without problems
+C/C++: /Users/macbookm1pro/Desktop/edge-veda/core/CMakeLists.txt profile|x86_64 : Writing build model to /Users/macbookm1pro/Desktop/atom_ai/build/edge_veda/intermediates/cxx/Debug/1t28672t/logs/x86_64/build_model.json
+Resolve mutations for :edge_veda:configureCMakeDebug (Thread[Execution worker Thread 9,5,main]) started.
+:edge_veda:configureCMakeDebug (Thread[Execution worker Thread 9,5,main]) started.
+
+> Task :edge_veda:configureCMakeDebug
+Skipping task ':edge_veda:configureCMakeDebug' as it has no actions.
+Build a9643557-a22e-4e41-9a20-26ddbf99c0b0 is closed
+
+[Incubating] Problems report is available at: file:///Users/macbookm1pro/Desktop/atom_ai/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.14/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 1s
+7 actionable tasks: 3 executed, 4 up-to-date
+Watched directory hierarchies: [/Users/macbookm1pro/development/flutter/packages/flutter_tools/gradle, /Users/macbookm1pro/Desktop/atom_ai/android]

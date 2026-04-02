@@ -1,0 +1,401 @@
+Starting a Gradle Daemon, 1 incompatible and 1 stopped Daemons could not be reused, use --status for details
+> Task :gradle:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :gradle:pluginDescriptors UP-TO-DATE
+> Task :gradle:processResources UP-TO-DATE
+
+> Task :gradle:compileKotlin
+w: file:///Users/macbookm1pro/development/flutter/packages/flutter_tools/gradle/src/main/kotlin/FlutterPlugin.kt:11:37 'ApkVariant' is deprecated. Deprecated in Java
+w: file:///Users/macbookm1pro/development/flutter/packages/flutter_tools/gradle/src/main/kotlin/FlutterPlugin.kt:614:69 'ApkVariant' is deprecated. Deprecated in Java
+w: file:///Users/macbookm1pro/development/flutter/packages/flutter_tools/gradle/src/main/kotlin/plugins/PluginHandler.kt:186:64 Unchecked cast: NamedDomainObjectContainer<out BuildType> to NamedDomainObjectContainer<BuildType>
+w: file:///Users/macbookm1pro/development/flutter/packages/flutter_tools/gradle/src/main/kotlin/plugins/PluginHandler.kt:187:69 Unchecked cast: NamedDomainObjectContainer<out BuildType> to NamedDomainObjectContainer<BuildType>
+
+> Task :gradle:compileJava NO-SOURCE
+> Task :gradle:compileGroovy NO-SOURCE
+> Task :gradle:classes UP-TO-DATE
+> Task :gradle:jar UP-TO-DATE
+
+> Configure project :app
+w: file:///Users/macbookm1pro/Desktop/atom_ai/android/app/build.gradle.kts:19:9: 'jvmTarget: String' is deprecated. Please migrate to the compilerOptions DSL. More details are here: https://kotl.in/u1r8ln
+
+> Task :clean
+> Task :app:externalNativeBuildCleanDebug
+> Task :app:externalNativeBuildCleanProfile
+> Task :app:externalNativeBuildCleanRelease
+> Task :app:clean UP-TO-DATE
+
+> Task :edge_veda:externalNativeBuildCleanDebug
+Clean edge_veda-armeabi-v7a
+Clean edge_veda-arm64-v8a
+Clean edge_veda-x86_64
+
+> Task :edge_veda:externalNativeBuildCleanProfile
+Clean edge_veda-armeabi-v7a
+Clean edge_veda-arm64-v8a
+Clean edge_veda-x86_64
+
+> Task :edge_veda:externalNativeBuildCleanRelease
+> Task :edge_veda:clean
+> Task :file_picker:clean UP-TO-DATE
+> Task :flutter_plugin_android_lifecycle:clean UP-TO-DATE
+> Task :image_picker_android:clean UP-TO-DATE
+> Task :integration_test:clean UP-TO-DATE
+> Task :path_provider_android:clean UP-TO-DATE
+> Task :permission_handler_android:clean UP-TO-DATE
+> Task :share_plus:clean UP-TO-DATE
+> Task :shared_preferences_android:clean UP-TO-DATE
+> Task :sqflite_android:clean UP-TO-DATE
+> Task :app:DebugMinSdkCheck
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :app:checkKotlinGradlePluginConfigurationErrors SKIPPED
+
+> Task :app:compileFlutterBuildDebug
+Error: Couldn't resolve the package 'camera' in 'package:camera/camera.dart'.
+Error: Couldn't resolve the package 'syncfusion_flutter_pdf' in 'package:syncfusion_flutter_pdf/pdf.dart'.
+lib/features/vision/vision_screen.dart:1:8: Error: Not found: 'package:camera/camera.dart'
+import 'package:camera/camera.dart';
+       ^
+lib/features/documents/documents_screen.dart:4:8: Error: Not found: 'package:syncfusion_flutter_pdf/pdf.dart'
+import 'package:syncfusion_flutter_pdf/pdf.dart';
+       ^
+lib/features/vision/vision_screen.dart:17:3: Error: Type 'CameraController' not found.
+  CameraController? _cameraController;
+  ^^^^^^^^^^^^^^^^
+lib/services/ai_runtime_service.dart:8:5: Error: Method not found: 'ChangeNotifierProvider'.
+    ChangeNotifierProvider<AiRuntimeService>((ref) => AiRuntimeService());
+    ^^^^^^^^^^^^^^^^^^^^^^
+lib/services/voice_service.dart:8:30: Error: Method not found: 'ChangeNotifierProvider'.
+final voiceServiceProvider = ChangeNotifierProvider<VoiceService>((ref) {
+                             ^^^^^^^^^^^^^^^^^^^^^^
+lib/app.dart:16:34: Error: The getter 'valueOrNull' isn't defined for the type 'AsyncValue<AppSettings>'.
+ - 'AsyncValue' is from 'package:riverpod/src/framework.dart' ('../../.pub-cache/hosted/pub.dev/riverpod-3.2.1/lib/src/framework.dart').
+ - 'AppSettings' is from 'package:atom_ai/services/settings_service.dart' ('lib/services/settings_service.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'valueOrNull'.
+    final isDark = settingsAsync.valueOrNull?.isDarkMode ?? false;
+                                 ^^^^^^^^^^^
+lib/services/settings_service.dart:83:27: Error: The getter 'valueOrNull' isn't defined for the type 'AsyncValue<AppSettings>'.
+ - 'AsyncValue' is from 'package:riverpod/src/framework.dart' ('../../.pub-cache/hosted/pub.dev/riverpod-3.2.1/lib/src/framework.dart').
+ - 'AppSettings' is from 'package:atom_ai/services/settings_service.dart' ('lib/services/settings_service.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'valueOrNull'.
+    final current = state.valueOrNull ?? const AppSettings();
+                          ^^^^^^^^^^^
+lib/services/settings_service.dart:88:27: Error: The getter 'valueOrNull' isn't defined for the type 'AsyncValue<AppSettings>'.
+ - 'AsyncValue' is from 'package:riverpod/src/framework.dart' ('../../.pub-cache/hosted/pub.dev/riverpod-3.2.1/lib/src/framework.dart').
+ - 'AppSettings' is from 'package:atom_ai/services/settings_service.dart' ('lib/services/settings_service.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'valueOrNull'.
+    final current = state.valueOrNull ?? const AppSettings();
+                          ^^^^^^^^^^^
+lib/services/settings_service.dart:93:27: Error: The getter 'valueOrNull' isn't defined for the type 'AsyncValue<AppSettings>'.
+ - 'AsyncValue' is from 'package:riverpod/src/framework.dart' ('../../.pub-cache/hosted/pub.dev/riverpod-3.2.1/lib/src/framework.dart').
+ - 'AppSettings' is from 'package:atom_ai/services/settings_service.dart' ('lib/services/settings_service.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'valueOrNull'.
+    final current = state.valueOrNull ?? const AppSettings();
+                          ^^^^^^^^^^^
+lib/services/settings_service.dart:98:27: Error: The getter 'valueOrNull' isn't defined for the type 'AsyncValue<AppSettings>'.
+ - 'AsyncValue' is from 'package:riverpod/src/framework.dart' ('../../.pub-cache/hosted/pub.dev/riverpod-3.2.1/lib/src/framework.dart').
+ - 'AppSettings' is from 'package:atom_ai/services/settings_service.dart' ('lib/services/settings_service.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'valueOrNull'.
+    final current = state.valueOrNull ?? const AppSettings();
+                          ^^^^^^^^^^^
+lib/services/settings_service.dart:103:27: Error: The getter 'valueOrNull' isn't defined for the type 'AsyncValue<AppSettings>'.
+ - 'AsyncValue' is from 'package:riverpod/src/framework.dart' ('../../.pub-cache/hosted/pub.dev/riverpod-3.2.1/lib/src/framework.dart').
+ - 'AppSettings' is from 'package:atom_ai/services/settings_service.dart' ('lib/services/settings_service.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'valueOrNull'.
+    final current = state.valueOrNull ?? const AppSettings();
+                          ^^^^^^^^^^^
+lib/services/settings_service.dart:108:27: Error: The getter 'valueOrNull' isn't defined for the type 'AsyncValue<AppSettings>'.
+ - 'AsyncValue' is from 'package:riverpod/src/framework.dart' ('../../.pub-cache/hosted/pub.dev/riverpod-3.2.1/lib/src/framework.dart').
+ - 'AppSettings' is from 'package:atom_ai/services/settings_service.dart' ('lib/services/settings_service.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'valueOrNull'.
+    final current = state.valueOrNull ?? const AppSettings();
+                          ^^^^^^^^^^^
+lib/features/onboarding/onboarding_screen.dart:71:8: Error: Expected ',' before this.
+import 'package:permission_handler/permission_handler.dart';
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/features/onboarding/onboarding_screen.dart:71:60: Error: Expected ')' before this.
+import 'package:permission_handler/permission_handler.dart';
+                                                           ^
+lib/features/onboarding/onboarding_screen.dart:69:30: Error: Too many positional arguments: 0 allowed, but 2 found.
+Try removing the extra positional arguments.
+              child: SizedBox(
+                             ^
+../../development/flutter/packages/flutter/lib/src/widgets/basic.dart:2736:9: Context: Found this candidate, but the arguments don't match.
+  const SizedBox({super.key, this.width, this.height, super.child});
+        ^^^^^^^^
+lib/features/chat/chat_screen.dart:76:51: Error: The getter 'valueOrNull' isn't defined for the type 'AsyncValue<AppSettings>'.
+ - 'AsyncValue' is from 'package:riverpod/src/framework.dart' ('../../.pub-cache/hosted/pub.dev/riverpod-3.2.1/lib/src/framework.dart').
+ - 'AppSettings' is from 'package:atom_ai/services/settings_service.dart' ('lib/services/settings_service.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'valueOrNull'.
+      final settings = ref.read(settingsProvider).valueOrNull;
+                                                  ^^^^^^^^^^^
+lib/features/chat/chat_screen.dart:318:10: Error: A function expression can't have a name.
+  Widget _buildLoadingState(ThemeData theme) {
+         ^^^^^^^^^^^^^^^^^^
+lib/features/chat/chat_screen.dart:335:11: Error: Expected ',' before this.
+          ChatInput(
+          ^^^^^^^^^
+lib/features/chat/chat_screen.dart:279:19: Error: The method '_buildLoadingState' isn't defined for the type '_ChatScreenState'.
+ - '_ChatScreenState' is from 'package:atom_ai/features/chat/chat_screen.dart' ('lib/features/chat/chat_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named '_buildLoadingState'.
+                ? _buildLoadingState(theme)
+                  ^^^^^^^^^^^^^^^^^^
+lib/features/vision/vision_screen.dart:17:3: Error: 'CameraController' isn't a type.
+  CameraController? _cameraController;
+  ^^^^^^^^^^^^^^^^
+lib/features/vision/vision_screen.dart:29:27: Error: The method 'availableCameras' isn't defined for the type '_VisionScreenState'.
+ - '_VisionScreenState' is from 'package:atom_ai/features/vision/vision_screen.dart' ('lib/features/vision/vision_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'availableCameras'.
+    final cameras = await availableCameras();
+                          ^^^^^^^^^^^^^^^^
+lib/features/vision/vision_screen.dart:31:57: Error: The getter 'ResolutionPreset' isn't defined for the type '_VisionScreenState'.
+ - '_VisionScreenState' is from 'package:atom_ai/features/vision/vision_screen.dart' ('lib/features/vision/vision_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'ResolutionPreset'.
+    _cameraController = CameraController(cameras.first, ResolutionPreset.medium);
+                                                        ^^^^^^^^^^^^^^^^
+lib/features/vision/vision_screen.dart:31:25: Error: The method 'CameraController' isn't defined for the type '_VisionScreenState'.
+ - '_VisionScreenState' is from 'package:atom_ai/features/vision/vision_screen.dart' ('lib/features/vision/vision_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'CameraController'.
+    _cameraController = CameraController(cameras.first, ResolutionPreset.medium);
+                        ^^^^^^^^^^^^^^^^
+lib/features/vision/vision_screen.dart:47:64: Error: Member not found: 'rgb888'.
+      final rgbImage = decodedImage.convert(format: img.Format.rgb888);
+                                                               ^^^^^^
+lib/features/vision/vision_screen.dart:48:24: Error: The getter 'Uint8List' isn't defined for the type '_VisionScreenState'.
+ - '_VisionScreenState' is from 'package:atom_ai/features/vision/vision_screen.dart' ('lib/features/vision/vision_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'Uint8List'.
+      final rgbBytes = Uint8List.fromList(rgbImage.toUint8List());
+                       ^^^^^^^^^
+lib/features/vision/vision_screen.dart:85:22: Error: The method 'CameraPreview' isn't defined for the type '_VisionScreenState'.
+ - '_VisionScreenState' is from 'package:atom_ai/features/vision/vision_screen.dart' ('lib/features/vision/vision_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'CameraPreview'.
+              child: CameraPreview(_cameraController!),
+                     ^^^^^^^^^^^^^
+lib/features/image_gen/image_gen_screen.dart:115:25: Error: The getter 'Uint8List' isn't defined for the type '_ImageGenScreenState'.
+ - '_ImageGenScreenState' is from 'package:atom_ai/features/image_gen/image_gen_screen.dart' ('lib/features/image_gen/image_gen_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'Uint8List'.
+                        Uint8List.fromList(_imageData!),
+                        ^^^^^^^^^
+lib/features/documents/documents_screen.dart:41:13: Error: 'PdfDocument' isn't a type.
+      final PdfDocument document = PdfDocument(inputBytes: bytes);
+            ^^^^^^^^^^^
+lib/features/documents/documents_screen.dart:41:36: Error: The method 'PdfDocument' isn't defined for the type '_DocumentsScreenState'.
+ - '_DocumentsScreenState' is from 'package:atom_ai/features/documents/documents_screen.dart' ('lib/features/documents/documents_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'PdfDocument'.
+      final PdfDocument document = PdfDocument(inputBytes: bytes);
+                                   ^^^^^^^^^^^
+lib/features/documents/documents_screen.dart:42:21: Error: The method 'PdfTextExtractor' isn't defined for the type '_DocumentsScreenState'.
+ - '_DocumentsScreenState' is from 'package:atom_ai/features/documents/documents_screen.dart' ('lib/features/documents/documents_screen.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'PdfTextExtractor'.
+      String text = PdfTextExtractor(document).extractText();
+                    ^^^^^^^^^^^^^^^^
+lib/services/tts_service.dart:18:15: Error: The method 'dispose' isn't defined for the type 'TtsService'.
+ - 'TtsService' is from 'package:edge_veda/src/tts_service.dart' ('../edge-veda/flutter/lib/src/tts_service.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'dispose'.
+    await tts.dispose();
+              ^^^^^^^
+Unhandled exception:
+FileSystemException(uri=org-dartlang-untranslatable-uri:package%3Acamera%2Fcamera.dart; message=StandardFileSystem only supports file:* and data:* URIs)
+#0      StandardFileSystem.entityForUri (package:front_end/src/api_prototype/standard_file_system.dart:45)
+#1      asFileUri (package:vm/kernel_front_end.dart:1038)
+#2      writeDepfile (package:vm/kernel_front_end.dart:1201)
+<asynchronous suspension>
+#3      FrontendCompiler.compile (package:frontend_server/frontend_server.dart:751)
+<asynchronous suspension>
+#4      starter (package:frontend_server/starter.dart:102)
+<asynchronous suspension>
+#5      main (file:///Volumes/Work/s/w/ir/x/w/sdk/pkg/frontend_server/bin/frontend_server_starter.dart:13)
+<asynchronous suspension>
+
+Target kernel_snapshot_program failed: Exception
+
+
+> Task :app:compileFlutterBuildDebug FAILED
+
+[Incubating] Problems report is available at: file:///Users/macbookm1pro/Desktop/atom_ai/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':app:compileFlutterBuildDebug'.
+> Process 'command '/Users/macbookm1pro/development/flutter/bin/flutter'' finished with non-zero exit value 1
+
+* Try:
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+* Exception is:
+org.gradle.api.tasks.TaskExecutionException: Execution failed for task ':app:compileFlutterBuildDebug'.
+	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.lambda$executeIfValid$1(ExecuteActionsTaskExecuter.java:130)
+	at org.gradle.internal.Try$Failure.ifSuccessfulOrElse(Try.java:293)
+	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeIfValid(ExecuteActionsTaskExecuter.java:128)
+	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.execute(ExecuteActionsTaskExecuter.java:116)
+	at org.gradle.api.internal.tasks.execution.ProblemsTaskPathTrackingTaskExecuter.execute(ProblemsTaskPathTrackingTaskExecuter.java:41)
+	at org.gradle.api.internal.tasks.execution.FinalizePropertiesTaskExecuter.execute(FinalizePropertiesTaskExecuter.java:46)
+	at org.gradle.api.internal.tasks.execution.ResolveTaskExecutionModeExecuter.execute(ResolveTaskExecutionModeExecuter.java:51)
+	at org.gradle.api.internal.tasks.execution.SkipTaskWithNoActionsExecuter.execute(SkipTaskWithNoActionsExecuter.java:57)
+	at org.gradle.api.internal.tasks.execution.SkipOnlyIfTaskExecuter.execute(SkipOnlyIfTaskExecuter.java:74)
+	at org.gradle.api.internal.tasks.execution.CatchExceptionTaskExecuter.execute(CatchExceptionTaskExecuter.java:36)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.executeTask(EventFiringTaskExecuter.java:77)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:55)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:52)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:210)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:205)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:67)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:60)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:167)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:60)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:54)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter.execute(EventFiringTaskExecuter.java:52)
+	at org.gradle.execution.plan.LocalTaskNodeExecutor.execute(LocalTaskNodeExecutor.java:42)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$InvokeNodeExecutorsAction.execute(DefaultTaskExecutionGraph.java:331)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$InvokeNodeExecutorsAction.execute(DefaultTaskExecutionGraph.java:318)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.lambda$execute$0(DefaultTaskExecutionGraph.java:314)
+	at org.gradle.internal.operations.CurrentBuildOperationRef.with(CurrentBuildOperationRef.java:85)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:314)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:303)
+	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.execute(DefaultPlanExecutor.java:459)
+	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.run(DefaultPlanExecutor.java:376)
+	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
+	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:48)
+Caused by: org.gradle.process.internal.ExecException: Process 'command '/Users/macbookm1pro/development/flutter/bin/flutter'' finished with non-zero exit value 1
+	at org.gradle.process.internal.DefaultExecHandle$ExecResultImpl.assertNormalExitValue(DefaultExecHandle.java:442)
+	at org.gradle.process.internal.DefaultExecAction.execute(DefaultExecAction.java:49)
+	at org.gradle.process.internal.DefaultExecActionFactory.exec(DefaultExecActionFactory.java:216)
+	at org.gradle.process.internal.DefaultExecOperations.exec(DefaultExecOperations.java:37)
+	at com.flutter.gradle.tasks.BaseFlutterTaskHelper.buildBundle(BaseFlutterTaskHelper.kt:159)
+	at com.flutter.gradle.tasks.BaseFlutterTask.buildBundle(BaseFlutterTask.kt:143)
+	at com.flutter.gradle.tasks.FlutterTaskHelper.build$gradle(FlutterTaskHelper.kt:90)
+	at com.flutter.gradle.tasks.FlutterTask.build(FlutterTask.kt:51)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at org.gradle.internal.reflect.JavaMethod.invoke(JavaMethod.java:125)
+	at org.gradle.api.internal.project.taskfactory.StandardTaskAction.doExecute(StandardTaskAction.java:58)
+	at org.gradle.api.internal.project.taskfactory.StandardTaskAction.execute(StandardTaskAction.java:51)
+	at org.gradle.api.internal.project.taskfactory.StandardTaskAction.execute(StandardTaskAction.java:29)
+	at org.gradle.api.internal.tasks.execution.TaskExecution$3.run(TaskExecution.java:244)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:30)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:27)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:67)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:60)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:167)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:60)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.run(DefaultBuildOperationRunner.java:48)
+	at org.gradle.api.internal.tasks.execution.TaskExecution.executeAction(TaskExecution.java:229)
+	at org.gradle.api.internal.tasks.execution.TaskExecution.executeActions(TaskExecution.java:212)
+	at org.gradle.api.internal.tasks.execution.TaskExecution.executeWithPreviousOutputFiles(TaskExecution.java:195)
+	at org.gradle.api.internal.tasks.execution.TaskExecution.execute(TaskExecution.java:162)
+	at org.gradle.internal.execution.steps.ExecuteStep.executeInternal(ExecuteStep.java:105)
+	at org.gradle.internal.execution.steps.ExecuteStep.access$000(ExecuteStep.java:44)
+	at org.gradle.internal.execution.steps.ExecuteStep$1.call(ExecuteStep.java:59)
+	at org.gradle.internal.execution.steps.ExecuteStep$1.call(ExecuteStep.java:56)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:210)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:205)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:67)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:60)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:167)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:60)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:54)
+	at org.gradle.internal.execution.steps.ExecuteStep.execute(ExecuteStep.java:56)
+	at org.gradle.internal.execution.steps.ExecuteStep.execute(ExecuteStep.java:44)
+	at org.gradle.internal.execution.steps.CancelExecutionStep.execute(CancelExecutionStep.java:42)
+	at org.gradle.internal.execution.steps.TimeoutStep.executeWithoutTimeout(TimeoutStep.java:75)
+	at org.gradle.internal.execution.steps.TimeoutStep.execute(TimeoutStep.java:55)
+	at org.gradle.internal.execution.steps.PreCreateOutputParentsStep.execute(PreCreateOutputParentsStep.java:50)
+	at org.gradle.internal.execution.steps.PreCreateOutputParentsStep.execute(PreCreateOutputParentsStep.java:28)
+	at org.gradle.internal.execution.steps.RemovePreviousOutputsStep.execute(RemovePreviousOutputsStep.java:67)
+	at org.gradle.internal.execution.steps.RemovePreviousOutputsStep.execute(RemovePreviousOutputsStep.java:37)
+	at org.gradle.internal.execution.steps.BroadcastChangingOutputsStep.execute(BroadcastChangingOutputsStep.java:61)
+	at org.gradle.internal.execution.steps.BroadcastChangingOutputsStep.execute(BroadcastChangingOutputsStep.java:26)
+	at org.gradle.internal.execution.steps.CaptureOutputsAfterExecutionStep.execute(CaptureOutputsAfterExecutionStep.java:69)
+	at org.gradle.internal.execution.steps.CaptureOutputsAfterExecutionStep.execute(CaptureOutputsAfterExecutionStep.java:46)
+	at org.gradle.internal.execution.steps.ResolveInputChangesStep.execute(ResolveInputChangesStep.java:40)
+	at org.gradle.internal.execution.steps.ResolveInputChangesStep.execute(ResolveInputChangesStep.java:29)
+	at org.gradle.internal.execution.steps.BuildCacheStep.executeWithoutCache(BuildCacheStep.java:189)
+	at org.gradle.internal.execution.steps.BuildCacheStep.lambda$execute$1(BuildCacheStep.java:75)
+	at org.gradle.internal.Either$Right.fold(Either.java:175)
+	at org.gradle.internal.execution.caching.CachingState.fold(CachingState.java:62)
+	at org.gradle.internal.execution.steps.BuildCacheStep.execute(BuildCacheStep.java:73)
+	at org.gradle.internal.execution.steps.BuildCacheStep.execute(BuildCacheStep.java:48)
+	at org.gradle.internal.execution.steps.StoreExecutionStateStep.execute(StoreExecutionStateStep.java:46)
+	at org.gradle.internal.execution.steps.StoreExecutionStateStep.execute(StoreExecutionStateStep.java:35)
+	at org.gradle.internal.execution.steps.SkipUpToDateStep.executeBecause(SkipUpToDateStep.java:75)
+	at org.gradle.internal.execution.steps.SkipUpToDateStep.lambda$execute$2(SkipUpToDateStep.java:53)
+	at org.gradle.internal.execution.steps.SkipUpToDateStep.execute(SkipUpToDateStep.java:53)
+	at org.gradle.internal.execution.steps.SkipUpToDateStep.execute(SkipUpToDateStep.java:35)
+	at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsFinishedStep.execute(MarkSnapshottingInputsFinishedStep.java:37)
+	at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsFinishedStep.execute(MarkSnapshottingInputsFinishedStep.java:27)
+	at org.gradle.internal.execution.steps.ResolveIncrementalCachingStateStep.executeDelegate(ResolveIncrementalCachingStateStep.java:49)
+	at org.gradle.internal.execution.steps.ResolveIncrementalCachingStateStep.executeDelegate(ResolveIncrementalCachingStateStep.java:27)
+	at org.gradle.internal.execution.steps.AbstractResolveCachingStateStep.execute(AbstractResolveCachingStateStep.java:71)
+	at org.gradle.internal.execution.steps.AbstractResolveCachingStateStep.execute(AbstractResolveCachingStateStep.java:39)
+	at org.gradle.internal.execution.steps.ResolveChangesStep.execute(ResolveChangesStep.java:65)
+	at org.gradle.internal.execution.steps.ResolveChangesStep.execute(ResolveChangesStep.java:36)
+	at org.gradle.internal.execution.steps.ValidateStep.execute(ValidateStep.java:107)
+	at org.gradle.internal.execution.steps.ValidateStep.execute(ValidateStep.java:56)
+	at org.gradle.internal.execution.steps.AbstractCaptureStateBeforeExecutionStep.execute(AbstractCaptureStateBeforeExecutionStep.java:64)
+	at org.gradle.internal.execution.steps.AbstractCaptureStateBeforeExecutionStep.execute(AbstractCaptureStateBeforeExecutionStep.java:43)
+	at org.gradle.internal.execution.steps.AbstractSkipEmptyWorkStep.executeWithNonEmptySources(AbstractSkipEmptyWorkStep.java:125)
+	at org.gradle.internal.execution.steps.AbstractSkipEmptyWorkStep.execute(AbstractSkipEmptyWorkStep.java:56)
+	at org.gradle.internal.execution.steps.AbstractSkipEmptyWorkStep.execute(AbstractSkipEmptyWorkStep.java:36)
+	at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsStartedStep.execute(MarkSnapshottingInputsStartedStep.java:38)
+	at org.gradle.internal.execution.steps.LoadPreviousExecutionStateStep.execute(LoadPreviousExecutionStateStep.java:36)
+	at org.gradle.internal.execution.steps.LoadPreviousExecutionStateStep.execute(LoadPreviousExecutionStateStep.java:23)
+	at org.gradle.internal.execution.steps.HandleStaleOutputsStep.execute(HandleStaleOutputsStep.java:75)
+	at org.gradle.internal.execution.steps.HandleStaleOutputsStep.execute(HandleStaleOutputsStep.java:41)
+	at org.gradle.internal.execution.steps.AssignMutableWorkspaceStep.lambda$execute$0(AssignMutableWorkspaceStep.java:35)
+	at org.gradle.api.internal.tasks.execution.TaskExecution$4.withWorkspace(TaskExecution.java:289)
+	at org.gradle.internal.execution.steps.AssignMutableWorkspaceStep.execute(AssignMutableWorkspaceStep.java:31)
+	at org.gradle.internal.execution.steps.AssignMutableWorkspaceStep.execute(AssignMutableWorkspaceStep.java:22)
+	at org.gradle.internal.execution.steps.ChoosePipelineStep.execute(ChoosePipelineStep.java:40)
+	at org.gradle.internal.execution.steps.ChoosePipelineStep.execute(ChoosePipelineStep.java:23)
+	at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.lambda$execute$2(ExecuteWorkBuildOperationFiringStep.java:67)
+	at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.execute(ExecuteWorkBuildOperationFiringStep.java:67)
+	at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.execute(ExecuteWorkBuildOperationFiringStep.java:39)
+	at org.gradle.internal.execution.steps.IdentityCacheStep.execute(IdentityCacheStep.java:46)
+	at org.gradle.internal.execution.steps.IdentityCacheStep.execute(IdentityCacheStep.java:34)
+	at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:48)
+	at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:35)
+	at org.gradle.internal.execution.impl.DefaultExecutionEngine$1.execute(DefaultExecutionEngine.java:64)
+	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeIfValid(ExecuteActionsTaskExecuter.java:127)
+	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.execute(ExecuteActionsTaskExecuter.java:116)
+	at org.gradle.api.internal.tasks.execution.ProblemsTaskPathTrackingTaskExecuter.execute(ProblemsTaskPathTrackingTaskExecuter.java:41)
+	at org.gradle.api.internal.tasks.execution.FinalizePropertiesTaskExecuter.execute(FinalizePropertiesTaskExecuter.java:46)
+	at org.gradle.api.internal.tasks.execution.ResolveTaskExecutionModeExecuter.execute(ResolveTaskExecutionModeExecuter.java:51)
+	at org.gradle.api.internal.tasks.execution.SkipTaskWithNoActionsExecuter.execute(SkipTaskWithNoActionsExecuter.java:57)
+	at org.gradle.api.internal.tasks.execution.SkipOnlyIfTaskExecuter.execute(SkipOnlyIfTaskExecuter.java:74)
+	at org.gradle.api.internal.tasks.execution.CatchExceptionTaskExecuter.execute(CatchExceptionTaskExecuter.java:36)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.executeTask(EventFiringTaskExecuter.java:77)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:55)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:52)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:210)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:205)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:67)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:60)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:167)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:60)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:54)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter.execute(EventFiringTaskExecuter.java:52)
+	at org.gradle.execution.plan.LocalTaskNodeExecutor.execute(LocalTaskNodeExecutor.java:42)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$InvokeNodeExecutorsAction.execute(DefaultTaskExecutionGraph.java:331)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$InvokeNodeExecutorsAction.execute(DefaultTaskExecutionGraph.java:318)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.lambda$execute$0(DefaultTaskExecutionGraph.java:314)
+	at org.gradle.internal.operations.CurrentBuildOperationRef.with(CurrentBuildOperationRef.java:85)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:314)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:303)
+	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.execute(DefaultPlanExecutor.java:459)
+	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.run(DefaultPlanExecutor.java:376)
+	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
+	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:48)
+
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.14/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD FAILED in 32s
+24 actionable tasks: 11 executed, 13 up-to-date
