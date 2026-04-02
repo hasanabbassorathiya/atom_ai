@@ -6,7 +6,9 @@ class ChatInput extends StatefulWidget {
   final ValueChanged<String> onSend;
   final bool isEnabled;
   final bool isStreaming;
-  final VoidCallback? onCancel;
+  final VoidCallback onToggleRecording;
+  final VoidCallback onAttachPressed;
+  final bool isRecording;
 
   const ChatInput({
     super.key,
@@ -14,6 +16,9 @@ class ChatInput extends StatefulWidget {
     this.isEnabled = true,
     this.isStreaming = false,
     this.onCancel,
+    required this.onToggleRecording,
+    required this.onAttachPressed,
+    this.isRecording = false,
   });
 
   @override
@@ -62,6 +67,17 @@ class _ChatInputState extends State<ChatInput> {
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
+              IconButton(
+                icon: Icon(
+                  widget.isRecording ? Icons.mic_off : Icons.mic,
+                  color: widget.isRecording ? AppColors.error : AppColors.primary,
+                ),
+                onPressed: widget.onToggleRecording,
+              ),
+              IconButton(
+                icon: const Icon(Icons.attach_file, color: AppColors.onSurfaceVariantDark),
+                onPressed: widget.onAttachPressed,
+              ),
               Expanded(
                 child: ConstrainedBox(
                   constraints: const BoxConstraints(maxHeight: 120),

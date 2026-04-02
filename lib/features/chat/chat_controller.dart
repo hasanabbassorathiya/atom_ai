@@ -1,6 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:edge_veda/edge_veda.dart';
-import '../../services/edge_veda_service.dart';
+import '../../services/runanywhere_service.dart';
 
 class ChatState {
   final List<Map<String, String>> messages;
@@ -32,31 +31,50 @@ class ChatState {
 
 class ChatController extends StateNotifier<ChatState> {
   final Ref ref;
-  final EdgeVedaService edgeVedaService;
+  final RunAnywhereService runAnywhereService;
 
-  ChatController(this.ref, this.edgeVedaService) : super(ChatState());
+  ChatController(this.ref, this.runAnywhereService) : super(ChatState());
 
   Future<void> sendMessage(String text) async {
     state = state.copyWith(isLoading: true, messages: [...state.messages, {'role': 'user', 'content': text}]);
 
-    final session = edgeVedaService.chatSession;
-    if (session == null) return;
-
     state = state.copyWith(messages: [...state.messages, {'role': 'assistant', 'content': ''}]);
 
-    await for (final chunk in session.sendStream(text)) {
-      if (!chunk.isFinal) {
-        final newMessages = List<Map<String, String>>.from(state.messages);
-        newMessages.last['content'] = (newMessages.last['content'] ?? '') + chunk.token;
-        state = state.copyWith(messages: newMessages);
-      }
+    final stream = await runAnywhereService.chatStream(text);
+
+    await for (final token in stream) {
+      final newMessages = List<Map<String, String>>.from(state.messages);
+      newMessages.last['content'] = (newMessages.last['content'] ?? '') + token;
+      state = state.copyWith(messages: newMessages);
     }
     state = state.copyWith(isLoading: false);
   }
 
-  // Voice/Vision methods to be implemented
+  Future<void> toggleRecording() async {
+    if (state.isRecording) {
+      runAnywhereService.stopVoiceSession();
+      state = state.copyWith(isRecording: false);
+    } else {
+      state = state.copyWith(isRecording: true);
+      await runAnywhereService.startVoiceSession((transcript, response) {
+        state = state.copyWith(
+          messages: [...state.messages, {'role': 'user', 'content': transcript}, {'role': 'assistant', 'content': response}],
+          isRecording: false,
+        );
+      });
+    }
+  }
+
+  Future<void> sendImage(String imagePath) async {
+    state = state.copyWith(isLoading: true, messages: [...state.messages, {'role': 'user', 'content': 'Image attached'}]);
+
+    // Call RunAnywhere vision processing
+    await runAnywhereService.processVision(imagePath, "Describe this image");
+
+    state = state.copyWith(isLoading: false);
+  }
 }
 
 final chatControllerProvider = StateNotifierProvider<ChatController, ChatState>((ref) {
-  return ChatController(ref, ref.watch(edgeVedaServiceProvider));
+  return ChatController(ref, ref.watch(runAnywhereServiceProvider));
 });

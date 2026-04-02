@@ -9,7 +9,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  edge_veda: ^2.5.0
+  runanywhere: ^0.1.0 # Hypothetical version, adjust based on actual pubspec requirement
+  runanywhere_llamacpp: ^0.1.0
+  runanywhere_onnx: ^0.1.0
   cupertino_icons: ^1.0.8
   flutter_riverpod: ^3.3.1
   go_router: ^17.1.0

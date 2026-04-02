@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:share_plus/share_plus.dart';
-
-import '../../core/theme/app_theme.dart';
-import '../../core/widgets/model_selector_dropdown.dart';
+import 'package:image_picker/image_picker.dart';
 import 'chat_controller.dart';
 import 'widgets/chat_bubble.dart';
 import 'widgets/chat_input.dart';
+import '../../data/models/conversation.dart'; // Ensure correct path
 
 class ChatScreen extends ConsumerStatefulWidget {
   const ChatScreen({super.key});
@@ -18,12 +15,11 @@ class ChatScreen extends ConsumerStatefulWidget {
 
 class _ChatScreenState extends ConsumerState<ChatScreen> {
   final ScrollController _scrollController = ScrollController();
-  final TextEditingController _textController = TextEditingController();
+  final ImagePicker _picker = ImagePicker();
 
   @override
   void dispose() {
     _scrollController.dispose();
-    _textController.dispose();
     super.dispose();
   }
 
@@ -39,6 +35,14 @@ class _ChatScreenState extends ConsumerState<ChatScreen> {
     });
   }
 
+  Future<void> _pickImage() async {
+    final XFile? image = await _picker.pickImage(source: ImageSource.gallery);
+    if (image != null) {
+      await ref.read(chatControllerProvider.notifier).sendImage(image.path);
+      _scrollToBottom();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -47,10 +51,7 @@ class _ChatScreenState extends ConsumerState<ChatScreen> {
     final isDark = theme.brightness == Brightness.dark;
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Atom AI'),
-        // ... (Retain existing AppBar actions for now, or adapt as needed)
-      ),
+      appBar: AppBar(title: const Text('Atom AI')),
       body: Column(
         children: [
           Expanded(
@@ -61,9 +62,8 @@ class _ChatScreenState extends ConsumerState<ChatScreen> {
               itemBuilder: (context, index) {
                 final msg = chatState.messages[index];
                 return ChatBubble(
-                  message: Message.assistant('convId', msg['content'] ?? ''), // Need proper Message model integration
+                  message: Message.assistant('convId', msg['content'] ?? ''),
                   isDark: isDark,
-                  // ... (Retain copy/share)
                 );
               },
             ),
@@ -71,12 +71,14 @@ class _ChatScreenState extends ConsumerState<ChatScreen> {
           ChatInput(
             onSend: (text) {
               chatNotifier.sendMessage(text);
-              _textController.clear();
               _scrollToBottom();
             },
+            onToggleRecording: () => chatNotifier.toggleRecording(),
+            onAttachPressed: _pickImage,
+            isRecording: chatState.isRecording,
             isEnabled: !chatState.isLoading,
             isStreaming: chatState.isLoading,
-            onCancel: () { /* Handle cancel */ },
+            onCancel: () {},
           ),
         ],
       ),
