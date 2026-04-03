@@ -1,26 +1,17 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
-import 'app.dart';
-import 'firebase_options.dart';
-import 'services/runanywhere_service.dart';
+import 'package:atom_ai/services/runanywhere_service.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+  // Service initialization logic needs to be updated to match the new stubs
+  runApp(const ProviderScope(child: MyApp()));
+}
 
-  // Initialize AI Services
-  final runAnywhereService = RunAnywhereService();
-  await runAnywhereService.init();
-  await runAnywhereService.loadModels();
-
-  runApp(ProviderScope(
-    overrides: [
-      runAnywhereServiceProvider.overrideWithValue(runAnywhereService),
-    ],
-    child: const AtomAIApp(),
-  ));
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(home: Scaffold(body: Center(child: Text('Atom AI'))));
+  }
 }

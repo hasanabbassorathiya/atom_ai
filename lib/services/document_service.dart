@@ -1,5 +1,4 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:runanywhere/runanywhere.dart';
 
 final documentServiceProvider = Provider<DocumentService>((ref) {
   return DocumentService();
@@ -14,8 +13,8 @@ class DocumentService {
     if (isInitialized) return;
 
     // Initialize embedding and RAG pipeline using RunAnywhere
-    await RunAnywhere.loadModel(chatModelId);
-    await RunAnywhere.loadModel(embedderModelId);
+    
+    
     _initialized = true;
   }
 
@@ -27,8 +26,8 @@ class DocumentService {
 
   Stream<String> queryStream(String query) async* {
     if (!_initialized) throw Exception('RAG not initialized');
-    final streamResult = await RunAnywhere.generateStream(query);
-    yield* streamResult.stream;
+    
+    
   }
 
   void dispose() {

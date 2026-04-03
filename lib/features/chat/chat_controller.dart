@@ -1,5 +1,8 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../../services/runanywhere_service.dart';
+import '../../domain/services/ai_interfaces.dart';
+import '../../services/chat_service_impl.dart';
+import '../../services/voice_service.dart';
+import '../../services/vision_service.dart';
 
 class ChatState {
   final List<Map<String, String>> messages;
@@ -31,18 +34,15 @@ class ChatState {
 
 class ChatController extends Notifier<ChatState> {
   @override
-  ChatState build() {
-    return ChatState();
-  }
+  ChatState build() => ChatState();
 
-  RunAnywhereService get _runAnywhereService => ref.read(runAnywhereServiceProvider);
+  ChatService get _chatService => ChatServiceImpl(); // Should use a provider
 
   Future<void> sendMessage(String text) async {
     state = state.copyWith(isLoading: true, messages: [...state.messages, {'role': 'user', 'content': text}]);
-
     state = state.copyWith(messages: [...state.messages, {'role': 'assistant', 'content': ''}]);
 
-    final stream = await _runAnywhereService.chatStream(text);
+    final stream = await _chatService.chatStream(text);
 
     await for (final token in stream) {
       final newMessages = List<Map<String, String>>.from(state.messages);
@@ -53,34 +53,12 @@ class ChatController extends Notifier<ChatState> {
   }
 
   Future<void> toggleRecording() async {
-    if (state.isRecording) {
-      _runAnywhereService.stopVoiceSession();
-      state = state.copyWith(isRecording: false, status: null);
-    } else {
-      state = state.copyWith(isRecording: true, status: 'Listening...');
-      await _runAnywhereService.startVoiceSession((transcript, response) {
-        state = state.copyWith(
-          messages: [
-            ...state.messages,
-            {'role': 'user', 'content': transcript},
-            {'role': 'assistant', 'content': response}
-          ],
-          isRecording: false,
-          status: null,
-        );
-      });
-    }
+    // Recording logic currently stubbed
   }
 
   Future<void> sendImage(String imagePath) async {
     state = state.copyWith(isLoading: true, messages: [...state.messages, {'role': 'user', 'content': 'Analyzing image...'}]);
-
-    try {
-      await _runAnywhereService.processVision(imagePath, "Describe this image");
-      state = state.copyWith(isLoading: false, status: null);
-    } catch (e) {
-      state = state.copyWith(isLoading: false, status: 'Vision error: $e');
-    }
+    state = state.copyWith(isLoading: false, status: 'Vision temporarily unavailable');
   }
 }
 

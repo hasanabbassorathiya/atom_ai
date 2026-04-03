@@ -1,7 +1,6 @@
 import 'dart:io' show Platform;
 
-import 'package:runanywhere/runanywhere.dart';
-import '../../services/model_service.dart';
+import 'package:atom_ai/domain/models/atom_model_config.dart';
 
 /// Selects the best already-downloaded model for each modality.
 class ModelSelector {
@@ -10,8 +9,8 @@ class ModelSelector {
   // ── LLM / Chat ─────────────────────────────────────────────────────────────
 
   static Future<ModelSelection> bestLlm() async {
-    // Logic to select best LlamaCpp/Onnx model using RunAnywhere
-    return const ModelSelection(
+    
+    return ModelSelection(
       model: AtomModelConfig(id: 'llama3', name: 'Llama 3 8B', sizeBytes: 8000000000),
       needsDownload: false,
     );

@@ -5,7 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:image/image.dart' as img;
 
 import '../../services/vision_service.dart';
-import '../../services/model_service.dart';
+import 'package:atom_ai/domain/models/atom_model_config.dart';
 import '../../services/active_models_service.dart';
 import '../../core/widgets/model_selector_dropdown.dart';
 

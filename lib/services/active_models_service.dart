@@ -1,6 +1,6 @@
+import 'package:atom_ai/domain/models/atom_model_config.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:runanywhere/runanywhere.dart';
 import 'model_service.dart';
 
 class ActiveModelsState {
@@ -52,7 +52,7 @@ class ActiveModelsNotifier extends Notifier<ActiveModelsState> {
     final modelService = ref.read(modelServiceProvider);
     final prefs = await SharedPreferences.getInstance();
 
-    // Updated to work with RunAnywhere-based AtomModelConfig
+    
     Future<AtomModelConfig?> findIfDownloaded(String categoryName, String? preferredId) async {
       try {
         final categories = modelService.getModelCategories();

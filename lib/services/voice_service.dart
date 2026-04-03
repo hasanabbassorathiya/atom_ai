@@ -1,48 +1,18 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:runanywhere/runanywhere.dart';
+import '../domain/services/ai_interfaces.dart';
+import 'voice_service_impl.dart';
 
-final voiceServiceProvider = NotifierProvider<VoiceNotifier, VoiceState>(VoiceNotifier.new);
+final voiceServiceProvider = NotifierProvider<VoiceNotifier, VoiceServiceImpl>(VoiceNotifier.new);
 
-class VoiceState {
-  final bool isRunning;
-  final String transcript;
-
-  VoiceState({
-    this.transcript = '',
-    this.isRunning = false,
-  });
-
-  VoiceState copyWith({
-    String? transcript,
-    bool? isRunning,
-  }) {
-    return VoiceState(
-      transcript: transcript ?? this.transcript,
-      isRunning: isRunning ?? this.isRunning,
-    );
-  }
-}
-
-class VoiceNotifier extends Notifier<VoiceState> {
-  VoiceSessionHandle? _session;
-
+class VoiceNotifier extends Notifier<VoiceServiceImpl> {
   @override
-  VoiceState build() => VoiceState();
+  VoiceServiceImpl build() => VoiceServiceImpl();
 
   Future<void> start() async {
-    _session = await RunAnywhere.startVoiceSession();
-    state = state.copyWith(isRunning: true);
-
-    _session!.events.listen((event) {
-      if (event is VoiceSessionTurnCompleted) {
-        state = state.copyWith(transcript: event.transcript);
-      }
-    });
+    await state.startVoiceSession((transcript, response) {});
   }
 
   Future<void> stop() async {
-    _session?.stop();
-    _session = null;
-    state = VoiceState();
+    state.stopVoiceSession();
   }
 }

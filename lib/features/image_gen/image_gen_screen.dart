@@ -6,7 +6,7 @@ import 'package:share_plus/share_plus.dart';
 import '../../core/theme/app_theme.dart';
 import '../../core/widgets/model_selector_dropdown.dart';
 import '../../services/image_service.dart';
-import '../../services/model_service.dart';
+import 'package:atom_ai/domain/models/atom_model_config.dart';
 import '../../services/active_models_service.dart';
 
 class ImageGenScreen extends ConsumerStatefulWidget {
@@ -42,8 +42,8 @@ class _ImageGenScreenState extends ConsumerState<ImageGenScreen> {
         throw Exception('Please select an Image Generation model first');
       }
 
-      if (!imageService.isImageInitialized) {
-        await imageService.initImage(modelId: activeModels.imageModel!.id);
+      if (!imageService.isVisionInitialized) {
+        await imageService.initVision(modelId: activeModels.imageModel!.id);
       }
 
       final path = await imageService.generateImage(prompt);
@@ -81,7 +81,7 @@ class _ImageGenScreenState extends ConsumerState<ImageGenScreen> {
           Expanded(
             child: Center(
               child: _generatedImagePath.isNotEmpty
-                ? Image.network(_generatedImagePath) // Assuming RunAnywhere returns path
+                ? Image.network(_generatedImagePath) 
                 : _isGenerating
                   ? const CircularProgressIndicator()
                   : const Text('Enter a prompt to generate an image'),
