@@ -47,24 +47,23 @@ class _ChatInputState extends State<ChatInput> {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final isDark = theme.brightness == Brightness.dark;
-
     return Container(
-      decoration: BoxDecoration(
-        color: isDark ? AppColors.surfaceDark : AppColors.surfaceLight,
+      decoration: const BoxDecoration(
+        color: AppColors.surface,
         border: Border(
           top: BorderSide(
-            color: isDark
-                ? Colors.white.withValues(alpha: 0.08)
-                : Colors.grey.shade200,
+            color: AppColors.outlineVariant,
+            width: 0.5,
           ),
         ),
       ),
       child: SafeArea(
         top: false,
         child: Padding(
-          padding: const EdgeInsets.fromLTRB(12, 8, 12, 8),
+          padding: const EdgeInsets.symmetric(
+            horizontal: AppSpacing.md,
+            vertical: AppSpacing.sm,
+          ),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
@@ -91,38 +90,43 @@ class _ChatInputState extends State<ChatInput> {
                     decoration: InputDecoration(
                       hintText: widget.isEnabled
                           ? 'Ask anything...'
-                          : 'Loading model...',
+                          : 'Loading...',
+                      filled: true,
+                      fillColor: AppColors.surfaceContainerLowest,
                       border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(24),
-                        borderSide: BorderSide.none,
+                        borderRadius: BorderRadius.circular(12),
+                        borderSide: const BorderSide(
+                          color: AppColors.outlineVariant,
+                          width: 0.5,
+                        ),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(12),
+                        borderSide: const BorderSide(
+                          color: AppColors.primary,
+                          width: 1,
+                        ),
                       ),
                       contentPadding: const EdgeInsets.symmetric(
-                        horizontal: 20,
-                        vertical: 12,
+                        horizontal: AppSpacing.md,
+                        vertical: AppSpacing.sm,
                       ),
                     ),
                     onSubmitted: widget.isEnabled ? (_) => _send() : null,
                   ),
                 ),
               ),
-              const SizedBox(width: 8),
-              widget.isStreaming
-                  ? IconButton.filled(
-                      icon: const Icon(Icons.stop),
-                      style: IconButton.styleFrom(
-                        backgroundColor: AppColors.error,
-                        foregroundColor: Colors.white,
-                      ),
-                      onPressed: widget.onCancel,
-                    )
-                  : IconButton.filled(
-                      icon: const Icon(Icons.send),
-                      style: IconButton.styleFrom(
-                        backgroundColor: AppColors.primary,
-                        foregroundColor: Colors.white,
-                      ),
-                      onPressed: widget.isEnabled ? _send : null,
-                    ),
+              const SizedBox(width: AppSpacing.sm),
+              IconButton.filled(
+                icon: Icon(widget.isStreaming ? Icons.stop : Icons.send),
+                style: IconButton.styleFrom(
+                  backgroundColor: AppColors.primary,
+                  foregroundColor: AppColors.background,
+                ),
+                onPressed: widget.isEnabled
+                    ? (widget.isStreaming ? widget.onCancel : _send)
+                    : null,
+              ),
             ],
           ),
         ),

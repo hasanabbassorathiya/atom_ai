@@ -1,18 +1,21 @@
+import '../../services/model_service.dart';
 import 'dart:typed_data';
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:image/image.dart' as img;
-
+import 'package:edge_veda/edge_veda.dart';
 import '../../services/vision_service.dart';
+<<<<<<< HEAD
 import 'package:atom_ai/domain/models/atom_model_config.dart';
+=======
+>>>>>>> b71232a (Apply Stitch design system and configure Firebase App Distribution)
 import '../../services/active_models_service.dart';
 import '../../core/widgets/model_selector_dropdown.dart';
 
 class VisionScreen extends ConsumerStatefulWidget {
   final bool isActive;
   const VisionScreen({super.key, this.isActive = true});
-
   @override
   ConsumerState<VisionScreen> createState() => _VisionScreenState();
 }
@@ -22,17 +25,14 @@ class _VisionScreenState extends ConsumerState<VisionScreen> {
   bool _isCameraReady = false;
   String _description = '';
   bool _isAnalyzing = false;
-
   @override
   void initState() {
     super.initState();
     _initCamera();
   }
-
   Future<void> _initCamera() async {
     final cameras = await availableCameras();
     if (cameras.isEmpty || !mounted) return;
-
     _cameraController = CameraController(cameras.first, ResolutionPreset.medium);
     try {
       await _cameraController!.initialize();
@@ -40,16 +40,14 @@ class _VisionScreenState extends ConsumerState<VisionScreen> {
       if (mounted) setState(() => _description = 'Camera error: $e');
       return;
     }
-
     if (mounted) setState(() => _isCameraReady = true);
   }
-
   Future<void> _analyzeFrame() async {
     if (!_isCameraReady || _isAnalyzing) return;
     setState(() => _isAnalyzing = true);
-
     try {
       final image = await _cameraController!.takePicture();
+<<<<<<< HEAD
 
       final visionService = ref.read(visionServiceProvider);
       final activeModels = ref.read(activeModelsProvider);
@@ -68,6 +66,24 @@ class _VisionScreenState extends ConsumerState<VisionScreen> {
         image.path,
         prompt: 'Describe this image.',
       );
+=======
+      final bytes = await image.readAsBytes();
+      final decodedImage = img.decodeImage(bytes);
+      if (decodedImage == null) throw Exception('Failed to decode image');
+      final rgbImage = decodedImage.convert(format: img.Format.uint8);
+      final rgbBytes = Uint8List.fromList(rgbImage.toUint8List());
+      final visionService = ref.read(visionServiceProvider);
+      final activeModels = ref.read(activeModelsProvider);
+      if (activeModels.visionModel == null) throw Exception('Please select a Vision model first');
+      if (!visionService.isVisionInitialized || visionService.currentModelId != activeModels.visionModel!.id) {
+        final modelPath = await ref.read(modelServiceProvider).getModelPath(activeModels.visionModel!.id);
+        final mmproj = ModelRegistry.getMmprojForModel(activeModels.visionModel!.id);
+        String? mmprojPath;
+        if (mmproj != null) mmprojPath = await ref.read(modelServiceProvider).getModelPath(mmproj.id);
+        await visionService.initVision(modelId: activeModels.visionModel!.id, modelPath: modelPath, mmprojPath: mmprojPath);
+      }
+      final desc = await visionService.describeImage(rgbBytes, width: rgbImage.width, height: rgbImage.height);
+>>>>>>> b71232a (Apply Stitch design system and configure Firebase App Distribution)
       setState(() => _description = desc);
     } catch (e) {
       setState(() => _description = 'Error: $e');
@@ -75,57 +91,25 @@ class _VisionScreenState extends ConsumerState<VisionScreen> {
       setState(() => _isAnalyzing = false);
     }
   }
-
   @override
   void dispose() {
     _cameraController?.dispose();
     super.dispose();
   }
-
   @override
   Widget build(BuildContext context) {
-    if (!_isCameraReady) {
-      return const Scaffold(body: Center(child: CircularProgressIndicator()));
-    }
-
+    if (!_isCameraReady) return const Scaffold(body: Center(child: CircularProgressIndicator()));
     final theme = Theme.of(context);
-
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Vision'),
-        actions: const [
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 8.0),
-            child: ModelSelectorDropdown(categoryType: ModelCategoryType.vision),
-          ),
-        ],
-      ),
+      appBar: AppBar(title: const Text('Vision'), actions: const [Padding(padding: EdgeInsets.symmetric(horizontal: 8.0), child: ModelSelectorDropdown(categoryType: ModelCategoryType.vision))]),
       body: Column(
         children: [
-          Expanded(
-            child: AspectRatio(
-              aspectRatio: 1 / _cameraController!.value.aspectRatio,
-              child: CameraPreview(_cameraController!),
-            ),
-          ),
-          Container(
-            padding: const EdgeInsets.all(16),
-            color: theme.colorScheme.surfaceContainerHighest,
-            child: Column(
-              children: [
-                if (_description.isNotEmpty)
-                  Text(_description, style: theme.textTheme.bodyMedium),
-                const SizedBox(height: 16),
-                FilledButton.icon(
-                  onPressed: _isAnalyzing ? null : _analyzeFrame,
-                  icon: _isAnalyzing
-                      ? const SizedBox(width: 20, height: 20, child: CircularProgressIndicator(strokeWidth: 2))
-                      : const Icon(Icons.visibility),
-                  label: Text(_isAnalyzing ? 'Analyzing...' : 'Describe'),
-                ),
-              ],
-            ),
-          ),
+          Expanded(child: AspectRatio(aspectRatio: 1 / _cameraController!.value.aspectRatio, child: CameraPreview(_cameraController!))),
+          Container(padding: const EdgeInsets.all(16), color: theme.colorScheme.surfaceContainerHighest, child: Column(children: [
+            if (_description.isNotEmpty) Text(_description, style: theme.textTheme.bodyMedium),
+            const SizedBox(height: 16),
+            FilledButton.icon(onPressed: _isAnalyzing ? null : _analyzeFrame, icon: _isAnalyzing ? const SizedBox(width: 20, height: 20, child: CircularProgressIndicator(strokeWidth: 2)) : const Icon(Icons.visibility), label: Text(_isAnalyzing ? 'Analyzing...' : 'Describe'))
+          ]))
         ],
       ),
     );

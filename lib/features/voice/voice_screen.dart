@@ -3,9 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:permission_handler/permission_handler.dart';
 
+import 'package:atom_ai/services/voice_service.dart' as voice_service;
+
 import '../../core/theme/app_theme.dart';
 import '../../core/widgets/model_selector_dropdown.dart';
-import '../../services/voice_service.dart';
 
 class VoiceScreen extends ConsumerStatefulWidget {
   const VoiceScreen({super.key});
@@ -32,9 +33,29 @@ class _VoiceScreenState extends ConsumerState<VoiceScreen> with SingleTickerProv
     super.dispose();
   }
 
+<<<<<<< HEAD
+=======
+  String _stateLabel(voice_service.VoicePipelineState state) {
+    switch (state) {
+      case voice_service.VoicePipelineState.idle:
+        return 'IDLE';
+      case voice_service.VoicePipelineState.listening:
+        return 'LISTENING';
+      case voice_service.VoicePipelineState.transcribing:
+        return 'TRANSCRIBING';
+      case voice_service.VoicePipelineState.thinking:
+        return 'THINKING';
+      case voice_service.VoicePipelineState.speaking:
+        return 'SPEAKING';
+      case voice_service.VoicePipelineState.error:
+        return 'ERROR';
+    }
+  }
+
+>>>>>>> b71232a (Apply Stitch design system and configure Firebase App Distribution)
   @override
   Widget build(BuildContext context) {
-    final voiceState = ref.watch(voiceServiceProvider);
+    final voiceState = ref.watch(voice_service.voiceServiceProvider);
     final theme = Theme.of(context);
 
     return Scaffold(
@@ -64,6 +85,10 @@ class _VoiceScreenState extends ConsumerState<VoiceScreen> with SingleTickerProv
                     painter: _OrbPainter(
                       isRunning: voiceState.isRunning,
                       animationValue: _orbController.value,
+<<<<<<< HEAD
+=======
+                      audioLevel: voiceState.state == voice_service.VoicePipelineState.listening ? 0.3 + 0.7 * sin(_orbController.value * 10) : 0.0,
+>>>>>>> b71232a (Apply Stitch design system and configure Firebase App Distribution)
                     ),
                   );
                 },
@@ -71,6 +96,20 @@ class _VoiceScreenState extends ConsumerState<VoiceScreen> with SingleTickerProv
             ),
           ),
 
+<<<<<<< HEAD
+=======
+          // State Label
+          Text(
+            _stateLabel(voiceState.state),
+            style: theme.textTheme.titleMedium?.copyWith(
+              fontWeight: FontWeight.bold,
+              letterSpacing: 1.5,
+              color: theme.colorScheme.primary,
+            ),
+          ),
+
+          // Transcript Area
+>>>>>>> b71232a (Apply Stitch design system and configure Firebase App Distribution)
           Expanded(
             flex: 4,
             child: Padding(
@@ -92,7 +131,7 @@ class _VoiceScreenState extends ConsumerState<VoiceScreen> with SingleTickerProv
             child: GestureDetector(
               onTap: () async {
                 if (voiceState.isRunning) {
-                  await ref.read(voiceServiceProvider.notifier).stop();
+                  await ref.read(voice_service.voiceServiceProvider.notifier).stop();
                 } else {
                   final status = await Permission.microphone.request();
                   if (status != PermissionStatus.granted) {
@@ -103,7 +142,19 @@ class _VoiceScreenState extends ConsumerState<VoiceScreen> with SingleTickerProv
                     }
                     return;
                   }
+<<<<<<< HEAD
                   await ref.read(voiceServiceProvider.notifier).start();
+=======
+                  try {
+                    await ref.read(voice_service.voiceServiceProvider.notifier).start();
+                  } catch (e) {
+                    if (context.mounted) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text('Error: $e')),
+                      );
+                    }
+                  }
+>>>>>>> b71232a (Apply Stitch design system and configure Firebase App Distribution)
                 }
               },
               child: Container(
@@ -128,7 +179,11 @@ class _VoiceScreenState extends ConsumerState<VoiceScreen> with SingleTickerProv
 }
 
 class _OrbPainter extends CustomPainter {
+<<<<<<< HEAD
   final bool isRunning;
+=======
+  final voice_service.VoicePipelineState state;
+>>>>>>> b71232a (Apply Stitch design system and configure Firebase App Distribution)
   final double animationValue;
 
   _OrbPainter({
@@ -139,6 +194,34 @@ class _OrbPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final center = Offset(size.width / 2, size.height / 2);
+<<<<<<< HEAD
+=======
+    const baseRadius = 80.0;
+
+    switch (state) {
+      case voice_service.VoicePipelineState.idle:
+        _paintIdle(canvas, center, baseRadius);
+        break;
+      case voice_service.VoicePipelineState.listening:
+        _paintListening(canvas, center, baseRadius);
+        break;
+      case voice_service.VoicePipelineState.transcribing:
+        _paintTranscribing(canvas, center, baseRadius);
+        break;
+      case voice_service.VoicePipelineState.thinking:
+        _paintThinking(canvas, center, baseRadius);
+        break;
+      case voice_service.VoicePipelineState.speaking:
+        _paintSpeaking(canvas, center, baseRadius);
+        break;
+      case voice_service.VoicePipelineState.error:
+        _paintError(canvas, center, baseRadius);
+        break;
+    }
+  }
+
+  void _paintIdle(Canvas canvas, Offset center, double radius) {
+>>>>>>> b71232a (Apply Stitch design system and configure Firebase App Distribution)
     final paint = Paint()
       ..color = isRunning ? AppColors.primary : Colors.grey
       ..style = PaintingStyle.fill;
