@@ -3,7 +3,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../core/theme/app_theme.dart';
+import '../../core/widgets/focus_bar.dart';
 import '../models/download_state.dart';
+import 'providers/focus_mode_provider.dart';
 
 class HomeShell extends ConsumerWidget {
   final Widget child;
@@ -47,6 +49,7 @@ class HomeShell extends ConsumerWidget {
     final isDark = theme.brightness == Brightness.dark;
 
     final activeDownloads = ref.watch(downloadStateProvider);
+    final focusMode = ref.watch(focusModeProvider);
 
     return Scaffold(
       body: Row(
@@ -110,6 +113,13 @@ class HomeShell extends ConsumerWidget {
                         ),
                       );
                     },
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 32),
+                  child: FocusBar(
+                    currentMode: focusMode,
+                    onModeChanged: (newMode) => ref.read(focusModeProvider.notifier).state = newMode,
                   ),
                 ),
               ],

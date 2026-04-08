@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import '../../services/model_service.dart';
 import 'dart:typed_data';
 import 'package:camera/camera.dart';
@@ -10,6 +11,13 @@ import '../../services/vision_service.dart';
 import 'package:atom_ai/domain/models/atom_model_config.dart';
 =======
 >>>>>>> b71232a (Apply Stitch design system and configure Firebase App Distribution)
+=======
+import 'package:camera/camera.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import '../../services/vision_service.dart';
+>>>>>>> 3fd72f7 (feat(home): implement FocusBar and integrate into HomeShell)
 import '../../services/active_models_service.dart';
 import '../../core/widgets/model_selector_dropdown.dart';
 
