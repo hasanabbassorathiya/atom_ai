@@ -130,7 +130,7 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/sqflite_darwin/darwin"
 
 SPEC CHECKSUMS:
-  camera_avfoundation: 5675ca25298b6f81fa0a325188e7df62cc217741
+  camera_avfoundation: 968a9a5323c79a99c166ad9d7866bfd2047b5a9b
   DKImagePickerController: 946cec48c7873164274ecc4624d19e3da4c1ef3c
   DKPhotoGallery: b3834fecb755ee09a593d7c9e389d8b5d6deed60
   edge_veda: 3d9caefd867bf46e31b4c3c83cb8e712260da80f

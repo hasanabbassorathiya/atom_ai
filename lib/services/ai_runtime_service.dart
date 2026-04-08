@@ -1,7 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:edge_veda/edge_veda.dart';
-import '../services/model_service.dart';
-import '../services/telemetry_service.dart'; // Assuming this service exists based on code usage
 
 class AiRuntimeState {
   final bool isInitialized;

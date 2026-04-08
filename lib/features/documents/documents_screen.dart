@@ -41,7 +41,7 @@ class _DocumentsScreenState extends ConsumerState<DocumentsScreen> {
       return;
     }
 
-    final result = await FilePicker.platform.pickFiles(
+    final result = await FilePicker.pickFiles(
       type: FileType.custom,
       allowedExtensions: ['pdf', 'txt'],
     );

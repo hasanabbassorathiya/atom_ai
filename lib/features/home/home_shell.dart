@@ -119,7 +119,7 @@ class HomeShell extends ConsumerWidget {
                   padding: const EdgeInsets.only(bottom: 32),
                   child: FocusBar(
                     currentMode: focusMode,
-                    onModeChanged: (newMode) => ref.read(focusModeProvider.notifier).state = newMode,
+                    onModeChanged: (newMode) => ref.read(focusModeProvider.notifier).setMode(newMode),
                   ),
                 ),
               ],
