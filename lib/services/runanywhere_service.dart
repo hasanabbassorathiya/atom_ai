@@ -1,4 +1,3 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../domain/services/ai_interfaces.dart';
 
 final // runAnywhereServiceProvider = Provider<ChatService>((ref) => ChatServiceImpl());

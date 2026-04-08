@@ -4,8 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../services/active_models_service.dart';
-import 'package:atom_ai/domain/models/atom_model_config.dart';
-
 enum ModelCategoryType { chat, vision, stt, image, embedding }
 
 class ModelSelectorDropdown extends ConsumerStatefulWidget {
