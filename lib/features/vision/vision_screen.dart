@@ -1,23 +1,12 @@
-<<<<<<< HEAD
-import '../../services/model_service.dart';
 import 'dart:typed_data';
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:image/image.dart' as img;
 import 'package:edge_veda/edge_veda.dart';
-import '../../services/vision_service.dart';
-<<<<<<< HEAD
-import 'package:atom_ai/domain/models/atom_model_config.dart';
-=======
->>>>>>> b71232a (Apply Stitch design system and configure Firebase App Distribution)
-=======
-import 'package:camera/camera.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../services/vision_service.dart';
->>>>>>> 3fd72f7 (feat(home): implement FocusBar and integrate into HomeShell)
+import '../../services/model_service.dart';
 import '../../services/active_models_service.dart';
 import '../../core/widgets/model_selector_dropdown.dart';
 
@@ -55,26 +44,6 @@ class _VisionScreenState extends ConsumerState<VisionScreen> {
     setState(() => _isAnalyzing = true);
     try {
       final image = await _cameraController!.takePicture();
-<<<<<<< HEAD
-
-      final visionService = ref.read(visionServiceProvider);
-      final activeModels = ref.read(activeModelsProvider);
-
-      if (activeModels.visionModel == null) {
-        throw Exception('Please select a Vision model first');
-      }
-
-      if (!visionService.isVisionInitialized) {
-        await visionService.initVision(
-          modelId: activeModels.visionModel!.id,
-        );
-      }
-
-      final desc = await visionService.describeImage(
-        image.path,
-        prompt: 'Describe this image.',
-      );
-=======
       final bytes = await image.readAsBytes();
       final decodedImage = img.decodeImage(bytes);
       if (decodedImage == null) throw Exception('Failed to decode image');
@@ -91,7 +60,6 @@ class _VisionScreenState extends ConsumerState<VisionScreen> {
         await visionService.initVision(modelId: activeModels.visionModel!.id, modelPath: modelPath, mmprojPath: mmprojPath);
       }
       final desc = await visionService.describeImage(rgbBytes, width: rgbImage.width, height: rgbImage.height);
->>>>>>> b71232a (Apply Stitch design system and configure Firebase App Distribution)
       setState(() => _description = desc);
     } catch (e) {
       setState(() => _description = 'Error: $e');
