@@ -1,17 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-<<<<<<< HEAD
 import 'package:image_picker/image_picker.dart';
-=======
 import 'package:flutter_animate/flutter_animate.dart';
 
 import '../../core/theme/app_theme.dart';
 import '../../data/models/conversation.dart';
->>>>>>> b71232a (Apply Stitch design system and configure Firebase App Distribution)
 import 'chat_controller.dart';
 import 'widgets/chat_bubble.dart';
 import 'widgets/chat_input.dart';
-import '../../data/models/conversation.dart'; // Ensure correct path
 
 class ChatScreen extends ConsumerStatefulWidget {
   const ChatScreen({super.key});
@@ -56,16 +52,12 @@ class _ChatScreenState extends ConsumerState<ChatScreen> {
     final chatNotifier = ref.read(chatControllerProvider.notifier);
 
     return Scaffold(
-<<<<<<< HEAD
-      appBar: AppBar(title: const Text('Atom AI')),
-=======
       backgroundColor: AppColors.background,
       appBar: AppBar(
         title: const Text('Atom AI'),
         backgroundColor: AppColors.surface,
         foregroundColor: AppColors.onSurface,
       ),
->>>>>>> b71232a (Apply Stitch design system and configure Firebase App Distribution)
       body: Column(
         children: [
           Expanded(
@@ -80,13 +72,8 @@ class _ChatScreenState extends ConsumerState<ChatScreen> {
                 final msg = chatState.messages[index];
                 return ChatBubble(
                   message: Message.assistant('convId', msg['content'] ?? ''),
-<<<<<<< HEAD
-                  isDark: isDark,
-                );
-=======
                   isDark: true,
                 ).animate().fadeIn(duration: 300.ms).moveY(begin: 10, end: 0);
->>>>>>> b71232a (Apply Stitch design system and configure Firebase App Distribution)
               },
             ),
           ),
@@ -100,13 +87,7 @@ class _ChatScreenState extends ConsumerState<ChatScreen> {
             isRecording: chatState.isRecording,
             isEnabled: !chatState.isLoading,
             isStreaming: chatState.isLoading,
-<<<<<<< HEAD
-            onCancel: () {
-              // Handle cancel logic
-            },
-=======
             onCancel: () {},
->>>>>>> b71232a (Apply Stitch design system and configure Firebase App Distribution)
           ),
         ],
       ),

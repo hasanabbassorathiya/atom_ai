@@ -1,3 +1,6 @@
+import 'dart:typed_data';
+import 'package:edge_veda/edge_veda.dart';
+
 abstract class ChatService {
   Future<Stream<String>> chatStream(String prompt);
 }
@@ -11,11 +14,12 @@ abstract class VoiceService {
 
 abstract class VisionService {
   bool get isVisionInitialized;
-  Future<void> initVision({required String modelId});
-  Future<String> describeImage(String imagePath, {String prompt = 'Describe this image.'});
-  // Added methods required by UI
-  Future<void> initImage({required String modelId});
-  Future<String> generateImage(String prompt);
+  bool get isImageInitialized;
+  String? get currentModelId;
+  Future<void> initVision({required String modelId, String? modelPath, String? mmprojPath});
+  Future<String> describeImage(Uint8List rgbBytes, {required int width, required int height});
+  Future<void> initImage({required String modelId, String? modelPath});
+  Future<Uint8List> generateImage(String prompt, {required ImageGenerationConfig config, Function(ImageProgress)? onProgress});
 }
 
 abstract class TtsService {

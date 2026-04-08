@@ -33,8 +33,6 @@ class _VoiceScreenState extends ConsumerState<VoiceScreen> with SingleTickerProv
     super.dispose();
   }
 
-<<<<<<< HEAD
-=======
   String _stateLabel(voice_service.VoicePipelineState state) {
     switch (state) {
       case voice_service.VoicePipelineState.idle:
@@ -52,7 +50,6 @@ class _VoiceScreenState extends ConsumerState<VoiceScreen> with SingleTickerProv
     }
   }
 
->>>>>>> b71232a (Apply Stitch design system and configure Firebase App Distribution)
   @override
   Widget build(BuildContext context) {
     final voiceState = ref.watch(voice_service.voiceServiceProvider);
@@ -83,12 +80,9 @@ class _VoiceScreenState extends ConsumerState<VoiceScreen> with SingleTickerProv
                   return CustomPaint(
                     size: const Size(200, 200),
                     painter: _OrbPainter(
-                      isRunning: voiceState.isRunning,
+                      state: voiceState.state,
                       animationValue: _orbController.value,
-<<<<<<< HEAD
-=======
                       audioLevel: voiceState.state == voice_service.VoicePipelineState.listening ? 0.3 + 0.7 * sin(_orbController.value * 10) : 0.0,
->>>>>>> b71232a (Apply Stitch design system and configure Firebase App Distribution)
                     ),
                   );
                 },
@@ -96,8 +90,6 @@ class _VoiceScreenState extends ConsumerState<VoiceScreen> with SingleTickerProv
             ),
           ),
 
-<<<<<<< HEAD
-=======
           // State Label
           Text(
             _stateLabel(voiceState.state),
@@ -109,7 +101,6 @@ class _VoiceScreenState extends ConsumerState<VoiceScreen> with SingleTickerProv
           ),
 
           // Transcript Area
->>>>>>> b71232a (Apply Stitch design system and configure Firebase App Distribution)
           Expanded(
             flex: 4,
             child: Padding(
@@ -142,9 +133,6 @@ class _VoiceScreenState extends ConsumerState<VoiceScreen> with SingleTickerProv
                     }
                     return;
                   }
-<<<<<<< HEAD
-                  await ref.read(voiceServiceProvider.notifier).start();
-=======
                   try {
                     await ref.read(voice_service.voiceServiceProvider.notifier).start();
                   } catch (e) {
@@ -154,7 +142,6 @@ class _VoiceScreenState extends ConsumerState<VoiceScreen> with SingleTickerProv
                       );
                     }
                   }
->>>>>>> b71232a (Apply Stitch design system and configure Firebase App Distribution)
                 }
               },
               child: Container(
@@ -179,23 +166,19 @@ class _VoiceScreenState extends ConsumerState<VoiceScreen> with SingleTickerProv
 }
 
 class _OrbPainter extends CustomPainter {
-<<<<<<< HEAD
-  final bool isRunning;
-=======
   final voice_service.VoicePipelineState state;
->>>>>>> b71232a (Apply Stitch design system and configure Firebase App Distribution)
   final double animationValue;
+  final double audioLevel;
 
   _OrbPainter({
-    required this.isRunning,
+    required this.state,
     required this.animationValue,
+    required this.audioLevel,
   });
 
   @override
   void paint(Canvas canvas, Size size) {
     final center = Offset(size.width / 2, size.height / 2);
-<<<<<<< HEAD
-=======
     const baseRadius = 80.0;
 
     switch (state) {
@@ -221,12 +204,45 @@ class _OrbPainter extends CustomPainter {
   }
 
   void _paintIdle(Canvas canvas, Offset center, double radius) {
->>>>>>> b71232a (Apply Stitch design system and configure Firebase App Distribution)
     final paint = Paint()
-      ..color = isRunning ? AppColors.primary : Colors.grey
+      ..color = Colors.grey
       ..style = PaintingStyle.fill;
+    canvas.drawCircle(center, 40.0, paint);
+  }
 
-    final radius = isRunning ? 80.0 * (0.9 + 0.1 * sin(animationValue * 2 * pi)) : 40.0;
+  void _paintListening(Canvas canvas, Offset center, double radius) {
+    final paint = Paint()
+      ..color = AppColors.primary
+      ..style = PaintingStyle.fill;
+    final r = radius * (0.8 + 0.2 * audioLevel);
+    canvas.drawCircle(center, r, paint);
+  }
+
+  void _paintTranscribing(Canvas canvas, Offset center, double radius) {
+    final paint = Paint()
+      ..color = AppColors.secondary
+      ..style = PaintingStyle.fill;
+    canvas.drawCircle(center, radius, paint);
+  }
+
+  void _paintThinking(Canvas canvas, Offset center, double radius) {
+    final paint = Paint()
+      ..color = AppColors.primaryDark
+      ..style = PaintingStyle.fill;
+    canvas.drawCircle(center, radius, paint);
+  }
+
+  void _paintSpeaking(Canvas canvas, Offset center, double radius) {
+    final paint = Paint()
+      ..color = AppColors.success
+      ..style = PaintingStyle.fill;
+    canvas.drawCircle(center, radius, paint);
+  }
+
+  void _paintError(Canvas canvas, Offset center, double radius) {
+    final paint = Paint()
+      ..color = AppColors.error
+      ..style = PaintingStyle.fill;
     canvas.drawCircle(center, radius, paint);
   }
 

@@ -38,16 +38,14 @@ class FocusBar extends StatelessWidget {
             'Mode: $currentMode',
             style: theme.textTheme.bodyMedium?.copyWith(
               fontWeight: FontWeight.w600,
-              color: isDark ? AppColors.onSurfaceDark : AppColors.onSurfaceLight,
+              color: theme.colorScheme.onSurface,
             ),
           ),
           const SizedBox(width: 8),
           IconButton(
             icon: const Icon(Icons.arrow_drop_down),
             iconSize: 18,
-            onPressed: () {
-              // Add menu or functionality to change mode
-            },
+            onPressed: () {},
           ),
         ],
       ),

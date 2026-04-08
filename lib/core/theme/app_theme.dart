@@ -11,6 +11,7 @@ class AppColors {
   static const surfaceContainerHighest = Color(0xFF00225A);
   static const primary = Color(0xFFB9C8DE);
   static const primaryContainer = Color(0xFF39485A);
+  static const secondary = Color(0xFFD1D1D1); // Added missing secondary color
   static const onSurface = Color(0xFFDEE5FF);
   static const onSurfaceVariant = Color(0xFF91AAEB);
   static const surfaceVariant = Color(0xFF00225A);
